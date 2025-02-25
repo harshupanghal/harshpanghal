@@ -49,7 +49,7 @@ const Landing = () => {
   return (
     <>
       <Header />
-      <main className="flex flex-col justify-center mt-5 h-screen px-12 md:px-24 lg:px-60">
+      <main className="flex flex-col justify-center mt-2 sm:mt-5 h-screen px-6 md:px-24 lg:px-60">
         {/* Name Animation */}
         <motion.h1
           className={`text-8xl md:text-8xl font-semibold   ${
@@ -76,7 +76,7 @@ const Landing = () => {
         </motion.h2>
 
         {/* Social Links */}
-        <div className="mt-16">
+        <div className="mt-8 sm:mt-16">
           <SocialLinks />
         </div>
 
@@ -102,7 +102,7 @@ const Landing = () => {
       {/* ========== SECOND SECTION ========== */}
       <section
         id="about-section"
-        className="h-screen flex flex-col justify-center px-6 mt-5 md:px-20 lg:px-52"
+        className="h-screen flex flex-col justify-center px-6 mt-2 sm:mt-5 md:px-20 lg:px-52"
       >
         <motion.div className="max-w-5xl">
           <h2
