@@ -1,0 +1,18 @@
+import { useTheme } from "../contexts/ThemeContext";
+
+const Card = () => {
+  const { theme } = useTheme(); // Get current theme
+
+  return (
+    <div
+      className={`p-6 rounded-lg shadow-md transition-all ${
+        theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+      }`}
+    >
+      <h2 className="text-xl font-semibold">Theme-Based Card</h2>
+      <p>This card changes its background and text color based on the theme.</p>
+    </div>
+  );
+};
+
+export default Card;

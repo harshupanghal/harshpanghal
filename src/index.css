@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Apply Ubuntu font globally */
+body {
+          font-family: "Ubuntu", sans-serif;
+}
+
+
+/* Light Mode Background */
+.light {
+          background: linear-gradient(to bottom, #f7f9fc, #09346c);
+          color: #0f82f5;
+}
+
+/* Dark Mode Background */
+.dark {
+          background: black;
+          color: #f7f7f7;
+}
