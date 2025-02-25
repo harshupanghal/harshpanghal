@@ -31,7 +31,7 @@ const Projects = () => {
         </p>
 
         {/* Project List */}
-        <div className="space-y-12">
+        <div className="space-y-6">
           {projects.map((project, index) => (
             <div
               key={index}
