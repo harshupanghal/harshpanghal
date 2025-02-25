@@ -25,13 +25,15 @@ const Projects = () => {
     <div>
       <section className="w-full px-8 md:px-16 lg:px-52 transition-all">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-medium mb-3">Projects</h1>
+        <h1 className="text-4xl md:text-5xl font-medium mb-2 sm:mb-4 mt-4 sm:mt-8">
+          Projects
+        </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 sm:mb-20">
           Here are the projects I have worked on.
         </p>
 
         {/* Project List */}
-        <div className="space-y-6">
+        <div className="space-y-12">
           {projects.map((project, index) => (
             <div
               key={index}

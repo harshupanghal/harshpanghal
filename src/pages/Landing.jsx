@@ -82,7 +82,7 @@ const Landing = () => {
 
         {/* Downward Arrow */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute bottom-5 sm:bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
           onClick={() =>
@@ -102,7 +102,7 @@ const Landing = () => {
       {/* ========== SECOND SECTION ========== */}
       <section
         id="about-section"
-        className="min-h-screen flex flex-col justify-center px-6 py-16 sm:py-32 md:px-20 lg:px-52"
+        className="min-h-screen flex flex-col justify-center px-6 mt-0 sm:mt-10 md:px-20 lg:px-52"
       >
         <motion.div className="max-w-5xl">
           <h2
@@ -137,7 +137,9 @@ const Landing = () => {
         </motion.div>
       </section>
       {/* ==========PROJECTS=========== */}
-      <Projects />
+      <div className="mt-8 sm:mt-12">
+        <Projects />
+      </div>
 
       {/* ============= Footer =========== */}
       <Footer />
