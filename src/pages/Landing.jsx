@@ -52,7 +52,7 @@ const Landing = () => {
       <main className="flex flex-col justify-center mt-5 h-screen px-12 md:px-24 lg:px-60">
         {/* Name Animation */}
         <motion.h1
-          className={`text-7xl md:text-8xl font-semibold  ${
+          className={`text-8xl md:text-8xl font-semibold   ${
             theme === "dark" ? "text-white" : "text-gray-900"
           }`}
           initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ const Landing = () => {
 
         {/* Tagline (One-liner) */}
         <motion.h2
-          className={` text-2xl md:text-3xl font-medium ${
+          className={` text-3xl py-6 md:text-4xl font-medium ${
             theme === "dark" ? "text-gray-300" : "text-gray-700"
           }`}
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +102,7 @@ const Landing = () => {
       {/* ========== SECOND SECTION ========== */}
       <section
         id="about-section"
-        className="h-screen flex flex-col justify-center px-6 mt-12 md:px-20 lg:px-52"
+        className="h-screen flex flex-col justify-center px-6 mt-5 md:px-20 lg:px-52"
       >
         <motion.div className="max-w-5xl">
           <h2
@@ -136,7 +136,6 @@ const Landing = () => {
           </h2>
         </motion.div>
       </section>
-
       {/* ==========PROJECTS=========== */}
       <Projects />
 

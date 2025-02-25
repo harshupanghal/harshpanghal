@@ -23,7 +23,7 @@ const Projects = () => {
 
   return (
     <div>
-      <section className="w-full py-16 px-8 md:px-16 lg:px-52 transition-all">
+      <section className="w-full px-8 md:px-16 lg:px-52 transition-all">
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-medium mb-3">Projects</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-20">
