@@ -141,7 +141,7 @@ const Landing = () => {
           </h2>
         </motion.div>
       </section>
-      <div className="mt-8 sm:mt-12">
+      <div className="mt-4 sm:mt-6">
         <Projects />
       </div>
 

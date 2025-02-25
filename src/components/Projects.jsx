@@ -19,15 +19,43 @@ const Projects = () => {
       tech: "Next.js, Tailwind, Firebase",
       image: "/images/jobconnect-preview.png",
     },
+    {
+      name: "Job Connect",
+      link: "#",
+      tech: "Next.js, Tailwind, Firebase",
+      image: "/images/jobconnect-preview.png",
+    },
+
+    {
+      name: "Job Connect",
+      link: "#",
+      tech: "Next.js, Tailwind, Firebase",
+      image: "/images/jobconnect-preview.png",
+    },
+
+    {
+      name: "Job Connect",
+      link: "#",
+      tech: "Next.js, Tailwind, Firebase",
+      image: "/images/jobconnect-preview.png",
+    },
+
+    {
+      name: "Job Connect",
+      link: "#",
+      tech: "Next.js, Tailwind, Firebase",
+      image: "/images/jobconnect-preview.png",
+    },
   ];
 
   return (
     <div>
       <section className="w-full px-8 md:px-16 lg:px-52 transition-all">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-medium mb-2 sm:mb-4 mt-4 sm:mt-8">
+        <h1 className="text-4xl md:text-5xl font-medium mb-2 sm:mb-4 mt-2 sm:mt-12">
           Projects
         </h1>
+
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 sm:mb-20">
           Here are the projects I have worked on.
         </p>
