@@ -102,7 +102,7 @@ const Landing = () => {
       {/* ========== SECOND SECTION ========== */}
       <section
         id="about-section"
-        className="h-screen flex flex-col justify-center px-6 mt-2 sm:mt-5 md:px-20 lg:px-52"
+        className="h-screen flex flex-col justify-center px-6 mt-2 sm:mt-2 md:px-20 lg:px-52"
       >
         <motion.div className="max-w-5xl">
           <h2
