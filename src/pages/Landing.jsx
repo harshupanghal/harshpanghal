@@ -85,9 +85,15 @@ const Landing = () => {
           className="absolute bottom-5 sm:bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          onClick={() =>
-            window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-          }
+          onClick={() => {
+            const aboutSection = document.getElementById("about-section");
+            if (aboutSection) {
+              aboutSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }}
         >
           <span
             className={`text-2xl font-extrabold ${
