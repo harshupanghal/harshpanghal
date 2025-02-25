@@ -99,7 +99,6 @@ const Landing = () => {
         </motion.div>
       </main>
 
-      {/* ========== SECOND SECTION ========== */}
       <section
         id="about-section"
         className="min-h-screen flex flex-col justify-center px-6 mt-0 sm:mt-10 md:px-20 lg:px-52"
@@ -136,7 +135,6 @@ const Landing = () => {
           </h2>
         </motion.div>
       </section>
-      {/* ==========PROJECTS=========== */}
       <div className="mt-8 sm:mt-12">
         <Projects />
       </div>
