@@ -404,7 +404,7 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section className="w-full px-6 md:px-16 lg:px-52 mt-12 transition-all overflow-hidden">
+    <section className="w-full px-6 md:px-16 lg:px-52 mt-20 transition-all overflow-hidden">
       {/* Title */}
       <h1 className="text-4xl text-center sm:text-5xl md:text-6xl font-semibold text-blue-500 dark:text-[#AE74FF] mb-4 sm:mb-6 mt-4 sm:mt-12">
         My Tech Stack
@@ -420,7 +420,7 @@ const SkillsSection = () => {
       {/* Scroller with Side Blur */}
       <div className="relative w-full overflow-hidden">
         {/* Left Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#191111] dark:via-[#191111]/70 dark:to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#191111] dark:via-[#191111]/70 dark:to-transparent z-1 pointer-events-none"></div>
 
         {/* Scrolling Icons */}
         <div className="scroller">
@@ -477,7 +477,6 @@ const SkillsSection = () => {
           bottom: -20px;
           left: 50%;
           transform: translateX(-50%);
-          background-color: rgba(0, 0, 0, 0.7);
           color: white;
           font-size: 12px;
           padding: 4px 8px;

@@ -147,8 +147,8 @@ const HeaderContent = React.memo(
               className={`md:hidden absolute w-full shadow-lg rounded-b-xl transition-all 
         ${
           scrolled
-            ? "bg-white/90 dark:bg-[#1a1a1a] backdrop-blur-lg"
-            : "bg-white dark:bg-[#1a1a1a] backdrop-blur-lg"
+            ? "bg-white/90 dark:bg-[#191111] backdrop-blur-lg"
+            : "bg-white dark:bg-[#191111] backdrop-blur-lg"
         }`}
             >
               <nav className="px-4 py-3">
