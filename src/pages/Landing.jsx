@@ -13,6 +13,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 import SocialLinks from "../components/SocialLinks";
+import SkillsSection from "../components/Skills";
 
 const Landing = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -111,7 +112,7 @@ const Landing = () => {
       >
         <motion.div className="max-w-5xl">
           <h2
-            className={`text-2xl font-medium md:text-5xl leading-snug text-left ${
+            className={`text-3xl font-medium md:text-5xl leading-snug text-left ${
               theme === "dark" ? "text-gray-100" : "text-gray-900"
             }`}
           >
@@ -144,6 +145,8 @@ const Landing = () => {
       <div className="mt-4 sm:mt-6">
         <Projects />
       </div>
+
+      <SkillsSection />
 
       {/* ============= Footer =========== */}
       <Footer />

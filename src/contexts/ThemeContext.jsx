@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {/* Apply theme transition effect */}
-      <div className="transition-colors duration-1000 ease-in-out">
+      <div className="transition-colors duration-600 ease-in-out">
         {children}
       </div>
     </ThemeContext.Provider>

@@ -11,40 +11,26 @@ const Projects = () => {
       name: "Free Flow",
       link: "#", // Add your project link
       tech: "React, Solidity, Web3.js",
-      image: "/images/freeflow-preview.png", // Add your image path
+      image: "/image.png", // Add your image path
     },
     {
       name: "Job Connect",
       link: "#",
       tech: "Next.js, Tailwind, Firebase",
-      image: "/images/jobconnect-preview.png",
+      image: "/image.png", // Add your image path
     },
     {
       name: "Job Connect",
       link: "#",
       tech: "Next.js, Tailwind, Firebase",
-      image: "/images/jobconnect-preview.png",
-    },
-
-    {
-      name: "Job Connect",
-      link: "#",
-      tech: "Next.js, Tailwind, Firebase",
-      image: "/images/jobconnect-preview.png",
+      image: "/image.png", // Add your image path
     },
 
     {
       name: "Job Connect",
       link: "#",
       tech: "Next.js, Tailwind, Firebase",
-      image: "/images/jobconnect-preview.png",
-    },
-
-    {
-      name: "Job Connect",
-      link: "#",
-      tech: "Next.js, Tailwind, Firebase",
-      image: "/images/jobconnect-preview.png",
+      image: "/image.png", // Add your image path
     },
   ];
 
