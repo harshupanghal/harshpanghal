@@ -52,6 +52,7 @@ const Landing = () => {
       <Header />
       <main className="flex flex-col justify-center min-h-screen py-16 sm:py-32 px-6 md:px-24 lg:px-60">
         {/* Name Animation */}
+
         <motion.h1
           className={`text-8xl md:text-8xl font-semibold   ${
             theme === "dark" ? "text-white" : "text-gray-900"
@@ -72,8 +73,8 @@ const Landing = () => {
           animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
-          I build things in <span className="text-blue-500">Web2</span> &{" "}
-          <span className="text-green-400">Web3</span>.
+          I build things in <span className="text-[#AE74FF]">Web2</span> &{" "}
+          <span className="text-[#0AE448]">Web3</span>.
         </motion.h2>
 
         {/* Social Links */}
@@ -104,8 +105,7 @@ const Landing = () => {
             ↓
           </span>
         </motion.div>
-      </main>
-
+      </main>{" "}
       <section
         id="about-section"
         className="min-h-screen flex flex-col justify-center px-6 mt-0 sm:mt-10 md:px-20 lg:px-52"
@@ -145,9 +145,9 @@ const Landing = () => {
       <div className="mt-4 sm:mt-6">
         <Projects />
       </div>
-
-      <SkillsSection />
-
+      <div className="mt-4 sm:mt-6">
+        <SkillsSection />
+      </div>
       {/* ============= Footer =========== */}
       <Footer />
     </>

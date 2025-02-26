@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
+import { useRef, useEffect } from "react";
 
 const SkillsSection = () => {
   const { theme } = useTheme();
@@ -375,27 +376,120 @@ const SkillsSection = () => {
     );
   };
 
+  const row1Ref = useRef(null);
+  const row2Ref = useRef(null);
+
+  useEffect(() => {
+    const startScrolling = (ref, direction) => {
+      if (!ref.current) return;
+      let speed = 30;
+      let pos = 0;
+
+      const scroll = () => {
+        if (direction === "left") {
+          pos -= 1;
+          if (pos <= -ref.current.scrollWidth / 2) pos = 0;
+        } else {
+          pos += 1;
+          if (pos >= ref.current.scrollWidth / 2) pos = 0;
+        }
+        ref.current.style.transform = `translateX(${pos}px)`;
+        requestAnimationFrame(scroll);
+      };
+      scroll();
+    };
+
+    startScrolling(row1Ref, "left");
+    startScrolling(row2Ref, "right");
+  }, []);
+
   return (
-    <section className="w-full px-8 md:px-16 lg:px-52 transition-all mt-40">
-      <h1 className="text-4xl md:text-5xl font-medium mb-6 text-left">
-        Skills
+    <section className="w-full px-6 md:px-16 lg:px-52 mt-12 transition-all overflow-hidden">
+      {/* Title */}
+      <h1 className="text-4xl text-center sm:text-5xl md:text-6xl font-semibold text-blue-500 dark:text-[#AE74FF] mb-4 sm:mb-6 mt-4 sm:mt-12">
+        My Tech Stack
       </h1>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-6 ">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="group relative flex flex-col items-center p-4 rounded-lg shadow-md dark:bg-[#040404] dark:shadow-xl transition-transform"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
-          >
-            <div className="flex items-center justify-center w-16 h-16 hover:scale-110 ">
-              {skill.icon}
-            </div>
-          </motion.div>
-        ))}
+      {/* Subtitle */}
+      <p className="text-lg text-center md:ml-4 sm:text-xl md:text-xl font-medium text-[#e1a226] dark:text-[#FFD074] mb-8 sm:mb-12 leading-relaxed max-w-3xl">
+        My expertise spans a diverse range of technologies, enabling me to
+        deliver comprehensive and cutting-edge solutions across various
+        platforms.
+      </p>
+
+      {/* Scroller with Side Blur */}
+      <div className="relative w-full overflow-hidden">
+        {/* Left Fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#191111] dark:via-[#191111]/70 dark:to-transparent z-10 pointer-events-none"></div>
+
+        {/* Scrolling Icons */}
+        <div className="scroller">
+          <div className="scroller__inner">
+            {skills.concat(skills).map((skill, index) => (
+              <div key={index} className="icon-wrapper group">
+                {skill.icon}
+                <span className="skill-tooltip">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Fade */}
+        <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-[#191111] dark:via-[#191111]/70 dark:to-transparent z-10 pointer-events-none"></div>
       </div>
+
+      {/* Styles */}
+      <style jsx>{`
+        .scroller {
+          display: flex;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 100%;
+          position: relative;
+        }
+
+        .scroller__inner {
+          display: flex;
+          animation: scroll-left 20s linear infinite;
+        }
+
+        @keyframes scroll-left {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .icon-wrapper {
+          padding: 16px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 80px;
+          height: 80px;
+        }
+
+        .skill-tooltip {
+          position: absolute;
+          bottom: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: rgba(0, 0, 0, 0.7);
+          color: white;
+          font-size: 12px;
+          padding: 4px 8px;
+          border-radius: 4px;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        .icon-wrapper:hover .skill-tooltip {
+          opacity: 1;
+        }
+      `}</style>
     </section>
   );
 };

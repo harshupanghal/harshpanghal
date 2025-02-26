@@ -127,7 +127,7 @@ const HeaderContent = React.memo(
                 className="md:hidden p-2 rounded-md "
                 onClick={() => setMenuOpen(!menuOpen)}
               >
-                {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                {menuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
           </div>
@@ -147,8 +147,8 @@ const HeaderContent = React.memo(
               className={`md:hidden absolute w-full shadow-lg rounded-b-xl transition-all 
         ${
           scrolled
-            ? "bg-white/90 dark:bg-[#0f0f0f] backdrop-blur-3xl"
-            : "bg-white dark:bg-[#0f0f0f] backdrop-blur-3xl"
+            ? "bg-white/90 dark:bg-[#1a1a1a] backdrop-blur-lg"
+            : "bg-white dark:bg-[#1a1a1a] backdrop-blur-lg"
         }`}
             >
               <nav className="px-4 py-3">
@@ -188,9 +188,9 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full fixed top-0 z-50 transition-all duration-300 pt-6 pb-3 ${
+      className={`w-full fixed top-0 z-50 transition-all duration-300 pt-6 pb-2 ${
         scrolled
-          ? "bg-white/80 dark:bg-[#000] backdrop-blur-3xl"
+          ? "backdrop-blur-md bg-[rgba(255,255,255,0.7)] dark:bg-[#191111]"
           : "bg-transparent"
       }`}
     >
