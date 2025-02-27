@@ -13,15 +13,16 @@ body {
 
 /* Light Mode Background */
 .light {
-          background: linear-gradient(135deg, #141e30, #243b55, #3b536e);
+          background: linear-gradient(135deg, #141e30, #243b55, #0055b6);
           background-attachment: fixed;
           background-size: cover;
           color: black;
+
 }
 
 /* Dark Mode Background */
 .dark {
-          background: radial-gradient(circle at center, #101010, #191111, #181010, #121111);
+          background: black;
           background-attachment: fixed;
           background-size: cover;
           color: #f7f7f7;

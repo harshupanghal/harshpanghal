@@ -1,103 +1,199 @@
 import { useTheme } from "../contexts/ThemeContext";
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Projects = () => {
   const { theme } = useTheme();
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [prevHoveredProject, setPrevHoveredProject] = useState(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const imageRef = useRef({ width: 384, height: 240 }); // Default sizes for md:w-96 md:h-60
+  const containerRef = useRef(null);
 
   const projects = [
     {
       name: "Free Flow",
-      link: "#", // Add your project link
+      link: "#",
       tech: "React, Solidity, Web3.js",
-      image: "/image.png", // Add your image path
+      image: "/image.png",
     },
     {
       name: "Job Connect",
       link: "#",
       tech: "Next.js, Tailwind, Firebase",
-      image: "/image.png", // Add your image path
+      image: "/vaultify.png",
     },
     {
-      name: "Job Connect",
+      name: "Portfolio",
       link: "#",
-      tech: "Next.js, Tailwind, Firebase",
-      image: "/image.png", // Add your image path
-    },
-
-    {
-      name: "Job Connect",
-      link: "#",
-      tech: "Next.js, Tailwind, Firebase",
-      image: "/image.png", // Add your image path
+      tech: "React, Tailwind, Framer Motion",
+      image: "/image.png",
     },
   ];
 
+  // Calculate directional offsets for transition animations.
+  let initialYOffset = 0;
+  let exitYOffset = 0;
+  if (prevHoveredProject !== null && hoveredProject !== null) {
+    const diff = hoveredProject - prevHoveredProject;
+    if (diff > 0) {
+      // Moving downward: new image comes from below, old image exits upward.
+      initialYOffset = 20;
+      exitYOffset = -20;
+    } else if (diff < 0) {
+      // Moving upward: new image comes from above, old image exits downward.
+      initialYOffset = -20;
+      exitYOffset = 20;
+    }
+  }
+
+  // Update image size reference based on viewport
+  useEffect(() => {
+    const updateImageSize = () => {
+      const isMd = window.innerWidth >= 768;
+      imageRef.current = {
+        width: isMd ? 384 : 288, // md:w-96 (384px) or w-72 (288px)
+        height: isMd ? 240 : 192, // md:h-60 (240px) or h-48 (192px)
+      };
+    };
+
+    updateImageSize();
+    window.addEventListener("resize", updateImageSize);
+    return () => window.removeEventListener("resize", updateImageSize);
+  }, []);
+
   return (
     <div>
-      <section className="w-full px-8 md:px-16 lg:px-52 transition-all">
+      <section className="w-full px-6 md:px-16 lg:px-52  transition-all overflow-hidden">
         {/* Title */}
-        <h1 className="text-4xl text-center text-blue-500 dark:text-[#AE74FF] md:text-5xl font-medium mb-2 sm:mb-4 mt-2 sm:mt-12">
-          My Projects
-        </h1>
+        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+          <h1 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+            My Projects
+          </h1>
+          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+            Here are the projects I have worked on.
+          </p>
+        </div>
 
-        <p className="text-lg font-medium sm:text-xl md:text-xl text-center text-[#e1a226] dark:text-[#FFD074] mb-10 sm:mb-20">
-          Here are the projects I have worked on.
-        </p>
-
-        {/* Project List */}
-        <div className="space-y-12">
+        {/* Project List Container */}
+        <div
+          ref={containerRef}
+          className="relative opacity-51 transform-none cursor-grabbing"
+          onMouseMove={(e) => {
+            if (containerRef.current) {
+              const rect = containerRef.current.getBoundingClientRect();
+              setCursorPos({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+              });
+            }
+          }}
+          onMouseLeave={() => setHoveredProject(null)}
+        >
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-6 border-gray-300 dark:border-gray-600 transition-all duration-300 ease-out hover:pl-4"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseMove={(e) => {
-                // Simple direct position tracking without storage access
-                const rect = e.currentTarget.getBoundingClientRect();
-                const x = e.clientX - rect.left; // x position within the element
-                const y = e.clientY - rect.top - 80; // y position within the element
-
-                setCursorPos({ x, y, rect });
+              className="group flex w-full items-center justify-between border-b px-4 py-10 sm:px-10 sm:py-16  "
+              onMouseEnter={() => {
+                setPrevHoveredProject(hoveredProject);
+                setHoveredProject(index);
               }}
-              onMouseLeave={() => setHoveredProject(null)}
             >
               {/* Left: Project Name */}
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-3xl md:text-6xl font-normal transition-all duration-300 ease-out group-hover:scale-110 group-hover:text-gray-500 dark:group-hover:text-gray-400 origin-left"
+                className="text-2xl transition-all group-hover:-translate-x-3 group-hover:scale-110 sm:text-5xl"
               >
                 {project.name}
               </a>
 
               {/* Right: Tech Stack */}
-              <p className="text-sm md:text-sm font-normal text-gray-700 dark:text-gray-300 mt-2 md:mt-0 transition-all duration-300 ease-out group-hover:scale-110 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+              <p className="text-sm font-light transition-all group-hover:translate-x-3 group-hover:scale-110 sm:text-lg">
                 {project.tech}
               </p>
+            </div>
+          ))}
 
-              {/* Hover Preview - Positioned relative to the container element */}
-              {hoveredProject === index && cursorPos.rect && (
-                <div
-                  className="absolute w-60 h-32 md:w-72 md:h-40 rounded-lg shadow-2xl border border-gray-300 dark:border-gray-900 bg-white dark:bg-gray-900 pointer-events-none"
-                  style={{
-                    left: cursorPos.x,
-                    top: cursorPos.y,
-                    transform: "translateX(-50%)",
-                    zIndex: 50,
+          {/* Hover Preview - Image Transition Effect */}
+          <AnimatePresence>
+            {hoveredProject !== null && (
+              <motion.div
+                key={hoveredProject}
+                className="absolute w-72 h-48 md:w-96 md:h-60 rounded-lg shadow-2xl bg-white dark:bg-gray-900 pointer-events-none overflow-hidden"
+                style={{
+                  // Position the top edge of the image just below the cursor
+                  left: cursorPos.x,
+                  top: cursorPos.y,
+                  // Adjust position to make the top edge at cursor position
+                  marginLeft: -(imageRef.current.width / 2),
+                  // Fixed offset to position just below cursor
+                  marginTop: -(imageRef.current.height / 2),
+                  zIndex: 50,
+                }}
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                  y: initialYOffset,
+                  rotate: -5,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  rotate: 0,
+                  transition: {
+                    duration: 0.4,
+                    ease: [0.19, 1.0, 0.22, 1.0], // Ease out expo
+                  },
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.6,
+                  y: exitYOffset,
+                  rotate: 5,
+                  transition: {
+                    duration: 0.3,
+                    ease: "easeInOut",
+                  },
+                }}
+                whileHover={{
+                  boxShadow:
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                }}
+              >
+                <motion.div
+                  className="w-full h-full"
+                  initial={{ scale: 1.2 }}
+                  animate={{
+                    scale: 1,
+                    transition: { duration: 0.5, ease: "easeOut" },
                   }}
                 >
                   <img
-                    src={project.image}
-                    alt={`${project.name} preview`}
+                    src={projects[hoveredProject].image}
+                    alt={`${projects[hoveredProject].name} preview`}
                     className="w-full h-full object-cover rounded-lg"
                   />
-                </div>
-              )}
-            </div>
-          ))}
+
+                  {/* Image overlay with project name */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: { delay: 0.3, duration: 0.6 },
+                    }}
+                  >
+                    <span className="text-white font-medium">
+                      {projects[hoveredProject].name}
+                    </span>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
     </div>

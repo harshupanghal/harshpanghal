@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaEnvelope,
-  FaFilePdf,
-} from "react-icons/fa";
 
 import Header from "../components/Header";
 import { useTheme } from "../contexts/ThemeContext";
@@ -14,6 +7,7 @@ import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 import SocialLinks from "../components/SocialLinks";
 import SkillsSection from "../components/Skills";
+import ContactSection from "../components/Contact";
 
 const Landing = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -49,13 +43,15 @@ const Landing = () => {
 
   return (
     <>
+      {/*            HEADER            */}
       <Header />
+      {/*        INTRO MAIN          */}
       <main className="flex flex-col justify-center min-h-screen py-16 sm:py-32 px-6 md:px-24 lg:px-60">
         {/* Name Animation */}
 
         <motion.h1
           className={`text-8xl md:text-8xl font-semibold   ${
-            theme === "dark" ? "text-white" : "text-gray-900"
+            theme === "dark" ? "text-white" : "text-black"
           }`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
@@ -106,6 +102,7 @@ const Landing = () => {
           </span>
         </motion.div>
       </main>{" "}
+      {/*           INTRODUCTION       */}
       <section
         id="about-section"
         className="min-h-screen flex flex-col justify-center px-6 mt-0 sm:mt-10 md:px-20 lg:px-52"
@@ -142,11 +139,17 @@ const Landing = () => {
           </h2>
         </motion.div>
       </section>
+      {/*           PROJECTS        */}
       <div className="mt-4 sm:mt-6">
         <Projects />
       </div>
+      {/*             SKILLS        */}
       <div className="mt-4 sm:mt-6">
         <SkillsSection />
+      </div>
+      {/*          CONTACT DETAILS        */}
+      <div className="mt-4 sm:mt-6">
+        <ContactSection />
       </div>
       {/* ============= Footer =========== */}
       <Footer />

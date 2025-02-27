@@ -404,30 +404,32 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section className="w-full px-6 md:px-16 lg:px-52 mt-20 transition-all overflow-hidden">
-      {/* Title */}
-      <h1 className="text-4xl text-center sm:text-5xl md:text-6xl font-semibold text-blue-500 dark:text-[#AE74FF] mb-4 sm:mb-6 mt-4 sm:mt-12">
-        My Tech Stack
-      </h1>
+    <section className="w-full px-6 md:px-16 lg:px-52 mt-32 transition-all overflow-hidden">
+      <div className="space-y-2 pt-6 pb-8 md:space-y-5 mb-8">
+        {/* Title */}
+        <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+          My Tech Stack
+        </h2>
 
-      {/* Subtitle */}
-      <p className="text-lg text-center md:ml-4 sm:text-xl md:text-xl font-medium text-[#e1a226] dark:text-[#FFD074] mb-8 sm:mb-12 leading-relaxed max-w-3xl">
-        My expertise spans a diverse range of technologies, enabling me to
-        deliver comprehensive and cutting-edge solutions across various
-        platforms.
-      </p>
+        {/* Subtitle */}
+        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+          My expertise spans a diverse range of technologies, enabling me to
+          deliver comprehensive and cutting-edge solutions across various
+          platforms.
+        </p>
+      </div>
 
-      {/* Scroller with Side Blur */}
-      <div className="relative w-full overflow-hidden">
+      {/* Scroller with Side Blur and Curved Effect */}
+      <div className="relative w-full overflow-hidden perspective">
         {/* Left Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#191111] dark:via-[#191111]/70 dark:to-transparent z-1 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[black] dark:via-[black]/70 dark:to-transparent z-10 pointer-events-none"></div>
 
-        {/* Scrolling Icons */}
-        <div className="scroller">
-          <div className="scroller__inner">
-            {skills.concat(skills).map((skill, index) => (
+        {/* Scrolling Icons with Curved Effect */}
+        <div className="curved-scroller">
+          <div className="curved-scroller__inner">
+            {[...skills, ...skills].map((skill, index) => (
               <div key={index} className="icon-wrapper group">
-                {skill.icon}
+                <div className="skill-icon">{skill.icon}</div>
                 <span className="skill-tooltip">{skill.name}</span>
               </div>
             ))}
@@ -435,25 +437,34 @@ const SkillsSection = () => {
         </div>
 
         {/* Right Fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-[#191111] dark:via-[#191111]/70 dark:to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-[black] dark:via-[black]/70 dark:to-transparent z-10 pointer-events-none"></div>
       </div>
 
       {/* Styles */}
       <style jsx>{`
-        .scroller {
-          display: flex;
+        .perspective {
+          perspective: 100px;
+          height: 120px;
+        }
+
+        .curved-scroller {
           overflow: hidden;
-          white-space: nowrap;
           width: 100%;
+          height: 100%;
           position: relative;
         }
 
-        .scroller__inner {
+        .curved-scroller__inner {
           display: flex;
-          animation: scroll-left 20s linear infinite;
+          white-space: nowrap;
+          animation: scroll-curved 20s linear infinite;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform-style: preserve-3d;
         }
 
-        @keyframes scroll-left {
+        @keyframes scroll-curved {
           from {
             transform: translateX(0);
           }
@@ -470,23 +481,55 @@ const SkillsSection = () => {
           justify-content: center;
           width: 80px;
           height: 80px;
+          transform-style: preserve-3d;
+          flex-shrink: 0;
+        }
+
+        .skill-icon {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.3s ease;
+        }
+
+        .icon-wrapper:nth-child(odd) {
+          transform: translateZ(-5px) rotateX(5deg);
+        }
+
+        .icon-wrapper:nth-child(even) {
+          transform: translateZ(-5px) rotateX(-5deg);
+        }
+
+        /* Edge icons have more pronounced curve */
+        .curved-scroller__inner .icon-wrapper:nth-child(-n + 3),
+        .curved-scroller__inner .icon-wrapper:nth-last-child(-n + 3) {
+          transform: translateZ(-10px) rotateX(20deg);
         }
 
         .skill-tooltip {
           position: absolute;
-          bottom: -20px;
+          bottom: -10px;
           left: 50%;
           transform: translateX(-50%);
+          background-color: rgba(0, 0, 0, 0.7);
           color: white;
           font-size: 12px;
           padding: 4px 8px;
           border-radius: 4px;
           opacity: 0;
           transition: opacity 0.3s ease-in-out;
+          pointer-events: none;
+          white-space: nowrap;
         }
 
         .icon-wrapper:hover .skill-tooltip {
           opacity: 1;
+        }
+
+        .icon-wrapper:hover .skill-icon {
+          transform: scale(1.2);
         }
       `}</style>
     </section>

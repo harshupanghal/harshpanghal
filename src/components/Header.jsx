@@ -101,7 +101,7 @@ const HeaderContent = React.memo(
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="w-6 h-6 text-yellow-500"
+                        className="w-6 h-6 text-yellow-400"
                       >
                         <path d="M12 3v1M12 20v1M4.22 4.22l.7.7M18.36 18.36l.7.7M1 12h1M22 12h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7M12 7a5 5 0 100 10 5 5 0 000-10z" />
                       </svg>
@@ -147,8 +147,8 @@ const HeaderContent = React.memo(
               className={`md:hidden absolute w-full shadow-lg rounded-b-xl transition-all 
         ${
           scrolled
-            ? "bg-white/90 dark:bg-[#191111] backdrop-blur-lg"
-            : "bg-white dark:bg-[#191111] backdrop-blur-lg"
+            ? "bg-white/90 dark:bg-[black] backdrop-blur-lg"
+            : "bg-white dark:bg-[black] backdrop-blur-lg"
         }`}
             >
               <nav className="px-4 py-3">
@@ -190,7 +190,7 @@ const Header = () => {
     <header
       className={`w-full fixed top-0 z-50 transition-all duration-300 pt-6 pb-2 ${
         scrolled
-          ? "backdrop-blur-md bg-[rgba(255,255,255,0.7)] dark:bg-[#191111]"
+          ? "backdrop-blur-md bg-[rgba(255,255,255,0.7)] dark:bg-[black]"
           : "bg-transparent"
       }`}
     >
