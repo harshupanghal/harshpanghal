@@ -199,21 +199,25 @@ const SkillsSection = () => {
     },
 
     {
-      name: "Hardhat",
-      icon:
-        theme === "dark" ? (
-          <img
-            src="/icons/hardhat-dark.svg"
-            alt="Hardhat"
-            className="max-w-full max-h-full scale-150 object-contain"
-          />
-        ) : (
-          <img
-            src="/icons/hardhat.svg"
-            alt="Hardhat"
-            className="max-w-full max-h-full scale-150 object-contain"
-          />
-        ),
+      name: "EtherJs",
+      icon: (
+        <img
+          src="/icons/eth.png"
+          alt="EtherJs"
+          className="h-12 w-12 object-contain"
+        />
+      ),
+    },
+
+    {
+      name: "Pinata",
+      icon: (
+        <img
+          src="/icons/pinata.svg"
+          alt="Pinata"
+          className="max-w-full max-h-full object-contain"
+        />
+      ),
     },
 
     {
@@ -232,16 +236,6 @@ const SkillsSection = () => {
             className="max-w-full max-h-full scale-150 object-contain"
           />
         ),
-    },
-    {
-      name: "Pinata",
-      icon: (
-        <img
-          src="/icons/pinata.svg"
-          alt="Pinata"
-          className="max-w-full max-h-full object-contain"
-        />
-      ),
     },
     {
       name: "Ganache",
@@ -267,6 +261,24 @@ const SkillsSection = () => {
           ></path>
         </svg>
       ),
+    },
+
+    {
+      name: "Hardhat",
+      icon:
+        theme === "dark" ? (
+          <img
+            src="/icons/hardhat-dark.svg"
+            alt="Hardhat"
+            className="max-w-full max-h-full scale-150 object-contain"
+          />
+        ) : (
+          <img
+            src="/icons/hardhat.svg"
+            alt="Hardhat"
+            className="max-w-full max-h-full scale-150 object-contain"
+          />
+        ),
     },
     {
       name: "MongoDB",
@@ -404,7 +416,7 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section className="w-full px-6 md:px-16 lg:px-52 mt-32 transition-all overflow-hidden">
+    <section className="w-full my-32 px-6 md:px-16 lg:px-52  transition-all overflow-hidden">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5 mb-8">
         {/* Title */}
         <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
@@ -441,7 +453,7 @@ const SkillsSection = () => {
       </div>
 
       {/* Styles */}
-      <style jsx>{`
+      <style jsx="true">{`
         .perspective {
           perspective: 100px;
           height: 120px;

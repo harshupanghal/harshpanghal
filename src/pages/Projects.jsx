@@ -64,7 +64,7 @@ const Projects = () => {
 
   return (
     <div>
-      <section className="w-full px-6 md:px-16 lg:px-52 transition-all ">
+      <section className="w-full px-6 md:px-16 lg:px-52 mt-32 transition-all ">
         {/* Title */}
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
@@ -144,7 +144,7 @@ const Projects = () => {
                   y: 0,
                   rotate: 0,
                   transition: {
-                    duration: 0.6,
+                    duration: 0.4,
                     ease: [0.19, 1.0, 0.22, 1.0], // Ease out expo
                   },
                 }}
@@ -154,7 +154,7 @@ const Projects = () => {
                   y: exitYOffset,
                   rotate: 5,
                   transition: {
-                    duration: 0.6,
+                    duration: 0.3,
                     ease: "easeInOut",
                   },
                 }}
@@ -168,7 +168,7 @@ const Projects = () => {
                   initial={{ scale: 1.2 }}
                   animate={{
                     scale: 1,
-                    transition: { duration: 0.8, ease: "easeOut" },
+                    transition: { duration: 0.6, ease: "easeOut" },
                   }}
                 >
                   <img

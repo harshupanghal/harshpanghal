@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 
-export default function ContactSection() {
+export default function Contact() {
   return (
-    <section className="flex flex-col items-center text-center mt-28 mb-28 px-6 space-y-4 pt-6 pb-8 md:space-y-5 transition-transform duration-300 ">
+    <section className="flex flex-col items-center text-center my-32  px-6 space-y-4 pt-6 pb-8 md:space-y-5 transition-transform duration-300 ">
       <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
         Let's Build Something Great Together
       </h2>

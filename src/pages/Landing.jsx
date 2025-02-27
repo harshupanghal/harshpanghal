@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-import Header from "../components/Header";
 import { useTheme } from "../contexts/ThemeContext";
-import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 import SocialLinks from "../components/SocialLinks";
 import SkillsSection from "../components/Skills";
@@ -44,14 +42,14 @@ const Landing = () => {
   return (
     <>
       {/*            HEADER            */}
-      <Header />
+      {/* <Header /> */}
       {/*        INTRO MAIN          */}
       <main className="flex flex-col justify-center min-h-screen py-16 sm:py-32 px-6 md:px-24 lg:px-60">
         {/* Name Animation */}
 
         <motion.h1
           className={`text-8xl md:text-8xl font-semibold   ${
-            theme === "dark" ? "text-white" : "text-black"
+            theme === "dark" ? "text-gray-100" : "text-gray-800"
           }`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
@@ -63,7 +61,7 @@ const Landing = () => {
         {/* Tagline (One-liner) */}
         <motion.h2
           className={` text-3xl py-6 md:text-4xl font-medium ${
-            theme === "dark" ? "text-gray-300" : "text-gray-700"
+            theme === "dark" ? "text-gray-200" : "text-gray-700"
           }`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
@@ -152,7 +150,6 @@ const Landing = () => {
         <ContactSection />
       </div>
       {/* ============= Footer =========== */}
-      <Footer />
     </>
   );
 };

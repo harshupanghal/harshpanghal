@@ -2,33 +2,37 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NavLink = React.memo(({ link, isMobile = false, setMenuOpen }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.a
+    <motion.div
       key={link}
-      href={`#${link.toLowerCase()}`}
-      className={`relative font-medium hover:text-gray-800 dark:hover:text-blue-200 ${
+      className={`relative font-medium ${
         isMobile ? "text-center text-lg w-full block py-3" : "px-4"
       }`}
-      onClick={() => isMobile && setMenuOpen(false)}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      transition={{ duration: 0.3 }}
     >
-      <span className="relative">
-        {link}
-        <motion.div
-          className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-gray-500"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          style={{ transformOrigin: "left" }}
-        />
-      </span>
-    </motion.a>
+      <Link
+        to={`/${link.toLowerCase()}`}
+        className="hover:text-gray-800 dark:hover:text-blue-200"
+        onClick={() => isMobile && setMenuOpen(false)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <span className="relative">
+          {link}
+          <motion.div
+            className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-gray-500"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </span>
+      </Link>
+    </motion.div>
   );
 });
 
@@ -47,21 +51,21 @@ const HeaderContent = React.memo(
               whileHover={{
                 scale: 1.05, // Slight scaling for emphasis
                 y: -2, // Gentle upward motion
-                textShadow: "0px 3px 10px rgba(0, 0, 0, 0.15)", // Soft glow effect
+                textShadow: "2px 3px 10px rgba(0, 0, 0, 2)", // Soft glow effect
               }}
               transition={{ type: "spring", stiffness: 120, damping: 10 }}
             >
-              <a href="/" className="relative">
+              <Link to="/" className="relative">
                 <motion.h1
                   className="text-xl font-bold text-gray-900 dark:text-gray-200 transition-all"
                   whileHover={{
                     letterSpacing: "2px", // Subtle letter spacing effect
-                    transition: { duration: 0.3 },
+                    transition: { duration: 0.5 },
                   }}
                 >
                   hp.
                 </motion.h1>
-              </a>
+              </Link>
             </motion.div>
 
             {/* Navigation */}
@@ -174,7 +178,10 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navLinks = useMemo(() => ["Home", "About", "Blog", "Contact"], []);
+  const navLinks = useMemo(
+    () => ["About", "Projects", "Skills", "Blog", "Contact"],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
