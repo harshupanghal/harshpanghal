@@ -60,7 +60,7 @@ const HeaderContent = React.memo(
                   className="text-xl font-bold text-gray-900 dark:text-gray-200 transition-all"
                   whileHover={{
                     letterSpacing: "2px", // Subtle letter spacing effect
-                    transition: { duration: 0.5 },
+                    transition: { duration: 0.3 },
                   }}
                 >
                   hp.
