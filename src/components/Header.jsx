@@ -178,10 +178,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navLinks = useMemo(
-    () => ["About", "Projects", "Skills", "Blog", "Contact"],
-    []
-  );
+  const navLinks = useMemo(() => ["About", "Projects", "Contact"], []);
 
   useEffect(() => {
     const handleScroll = () => {

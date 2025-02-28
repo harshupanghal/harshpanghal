@@ -6,6 +6,7 @@ import Projects from "../components/Projects";
 import SocialLinks from "../components/SocialLinks";
 import SkillsSection from "../components/Skills";
 import ContactSection from "../components/Contact";
+import WhatIDo from "../components/WhatIDo";
 
 const Landing = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -48,7 +49,7 @@ const Landing = () => {
         {/* Name Animation */}
 
         <motion.h1
-          className={`text-8xl md:text-8xl font-semibold   ${
+          className={`text-8xl md:text-8xl font-semibold mt-10  ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
           }`}
           initial={{ opacity: 0, y: 20 }}
@@ -61,13 +62,14 @@ const Landing = () => {
         {/* Tagline (One-liner) */}
         <motion.h2
           className={` text-3xl py-6 md:text-4xl font-medium ${
-            theme === "dark" ? "text-gray-200" : "text-gray-700"
+            theme === "dark" ? "text-gray-300" : "text-gray-700"
           }`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
-          I build things in <span className="text-[#AE74FF]">Web2</span> &{" "}
+          I build things in{" "}
+          <span className="text-blue-500 dark:text-blue-400">Web2</span> &{" "}
           <span className="text-[#0AE448]">Web3</span>.
         </motion.h2>
 
@@ -99,7 +101,7 @@ const Landing = () => {
             ↓
           </span>
         </motion.div>
-      </main>{" "}
+      </main>
       {/*           INTRODUCTION       */}
       <section
         id="about-section"
@@ -107,7 +109,7 @@ const Landing = () => {
       >
         <motion.div className="max-w-5xl">
           <h2
-            className={`text-3xl font-medium md:text-5xl leading-snug text-left ${
+            className={`text-4xl font-medium md:text-5xl leading-snug text-left ${
               theme === "dark" ? "text-gray-100" : "text-gray-900"
             }`}
           >
@@ -137,9 +139,8 @@ const Landing = () => {
           </h2>
         </motion.div>
       </section>
-      {/*           PROJECTS        */}
       <div className="mt-4 sm:mt-6">
-        <Projects />
+        <WhatIDo />
       </div>
       {/*             SKILLS        */}
       <div className="mt-4 sm:mt-6">
@@ -149,7 +150,6 @@ const Landing = () => {
       <div className="mt-4 sm:mt-6">
         <ContactSection />
       </div>
-      {/* ============= Footer =========== */}
     </>
   );
 };

@@ -12,7 +12,7 @@ const SkillsSection = () => {
         <img
           src="/icons/html5.svg"
           alt="HTML"
-          className="h-12 w-12 object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -22,7 +22,7 @@ const SkillsSection = () => {
         <img
           src="/icons/css3.svg"
           alt="CSS"
-          className="h-12 w-12 object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -32,7 +32,7 @@ const SkillsSection = () => {
         <img
           src="/icons/javascript.svg"
           alt="JavaScript"
-          className="h-12 w-12 object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -113,7 +113,7 @@ const SkillsSection = () => {
         <img
           src="/icons/web3.png"
           alt="Web3.js"
-          className="h-12 w-12 object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -122,24 +122,11 @@ const SkillsSection = () => {
       // Example SVG icon – note that its fill uses currentColor
       name: "Tailwind",
       icon: (
-        <svg
-          viewBox="0 0 170 32"
-          fill="none"
-          className="w-40 h-40 scale-150 text-black dark:text-white"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M16.668 2c-4.445 0-7.223 2.222-8.334 6.667 1.667-2.222 3.611-3.055 5.833-2.5 1.268.317 2.175 1.236 3.178 2.255C18.979 10.081 20.87 12 25 12c4.445 0 7.223-2.222 8.334-6.666-1.666 2.222-3.61 3.055-5.833 2.5-1.269-.318-2.175-1.237-3.178-2.255C22.69 3.919 20.8 2 16.668 2zM8.334 12C3.889 12 1.11 14.222 0 18.667c1.667-2.222 3.612-3.056 5.833-2.5 1.269.316 2.175 1.236 3.178 2.255C10.645 20.081 12.536 22 16.668 22c4.444 0 7.222-2.222 8.333-6.666-1.667 2.222-3.611 3.055-5.833 2.5-1.268-.317-2.175-1.238-3.177-2.255C14.356 13.92 12.463 12 8.334 12z"
-            className="fill-sky-500"
-          ></path>
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M50 10.427h-2.908v5.63c0 1.501.985 1.477 2.909 1.383v2.276c-3.895.47-5.443-.61-5.443-3.66v-5.63H42.4V7.988h2.158v-3.15l2.534-.751v3.901H50v2.44zm11.088-2.44h2.533v11.729h-2.533v-1.689c-.892 1.243-2.276 1.994-4.105 1.994-3.19 0-5.841-2.698-5.841-6.17 0-3.494 2.65-6.169 5.84-6.169 1.83 0 3.215.75 4.106 1.97V7.988zm-3.706 9.618c2.111 0 3.706-1.572 3.706-3.754s-1.595-3.753-3.706-3.753c-2.111 0-3.706 1.572-3.706 3.753 0 2.182 1.595 3.754 3.706 3.754zM67.844 6.228c-.891 0-1.618-.75-1.618-1.619.002-.43.173-.842.476-1.145a1.612 1.612 0 012.283 0c.304.303.475.715.477 1.145 0 .868-.727 1.619-1.618 1.619zm-1.267 13.488V7.987h2.534v11.729h-2.534zm5.466 0V2.59h2.533v17.124h-2.533zM91.021 7.987h2.674l-3.683 11.729h-2.487l-2.44-7.905-2.463 7.905h-2.486L76.453 7.987h2.674l2.276 8.092 2.463-8.092h2.416l2.44 8.092 2.299-8.092zm5.817-1.759c-.892 0-1.619-.75-1.619-1.619.003-.43.174-.842.477-1.145a1.612 1.612 0 012.284 0c.303.303.475.715.477 1.145 0 .868-.727 1.619-1.619 1.619zm-1.266 13.488V7.987h2.533v11.729H95.57zm11.634-12.034c2.628 0 4.504 1.783 4.504 4.833v7.2h-2.533v-6.943c0-1.783-1.032-2.72-2.627-2.72-1.666 0-2.979.985-2.979 3.377v6.287h-2.534V7.987h2.534V9.49c.774-1.22 2.04-1.807 3.635-1.807zm16.515-4.386h2.533v16.42h-2.533v-1.69c-.891 1.244-2.275 1.994-4.105 1.994-3.19 0-5.841-2.697-5.841-6.17 0-3.494 2.651-6.168 5.841-6.168 1.83 0 3.214.75 4.105 1.97V3.296zm-3.707 14.309c2.112 0 3.707-1.572 3.707-3.754s-1.595-3.753-3.707-3.753c-2.111 0-3.706 1.572-3.706 3.753 0 2.182 1.595 3.754 3.706 3.754zm14.732 2.416c-3.542 0-6.193-2.698-6.193-6.17 0-3.494 2.651-6.169 6.193-6.169 2.299 0 4.293 1.196 5.231 3.026l-2.182 1.267c-.516-1.102-1.665-1.806-3.072-1.806-2.065 0-3.636 1.572-3.636 3.682 0 2.111 1.571 3.683 3.636 3.683 1.407 0 2.556-.727 3.119-1.806l2.182 1.243c-.985 1.853-2.979 3.05-5.278 3.05zm9.453-8.797c0 2.135 6.311.844 6.311 5.185 0 2.346-2.041 3.612-4.574 3.612-2.346 0-4.035-1.056-4.786-2.745l2.182-1.266c.375 1.055 1.313 1.689 2.604 1.689 1.126 0 1.993-.376 1.993-1.315 0-2.087-6.31-.914-6.31-5.113 0-2.205 1.9-3.589 4.293-3.589 1.924 0 3.519.892 4.34 2.44l-2.135 1.196c-.422-.915-1.243-1.337-2.205-1.337-.915 0-1.713.399-1.713 1.243zm10.815 0c0 2.135 6.31.844 6.31 5.185 0 2.346-2.041 3.612-4.575 3.612-2.345 0-4.034-1.056-4.785-2.745l2.182-1.266c.375 1.055 1.313 1.689 2.603 1.689 1.126 0 1.995-.376 1.995-1.315 0-2.087-6.31-.914-6.31-5.113 0-2.205 1.899-3.589 4.292-3.589 1.924 0 3.519.892 4.34 2.44l-2.135 1.196c-.422-.915-1.243-1.337-2.205-1.337-.915 0-1.712.399-1.712 1.243z"
-            fill="currentColor"
-          ></path>
-        </svg>
+        <img
+          src="/icons/tailwind.png"
+          alt="Tailwind"
+          className="max-w-16 max-h-16 object-contain"
+        />
       ),
     },
 
@@ -149,7 +136,7 @@ const SkillsSection = () => {
         <img
           src="/icons/bootstrap.png"
           alt="Bootstrap"
-          className="w-16 h-20 object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -159,7 +146,7 @@ const SkillsSection = () => {
         <img
           src="/icons/git.png"
           alt="Git"
-          className="max-w-full max-h-full scale-110 object-contain"
+          className="max-w-16 max-h-16 scale-125 object-contain"
         />
       ),
     },
@@ -169,7 +156,7 @@ const SkillsSection = () => {
         <img
           src="/icons/github.png"
           alt="Github"
-          className="max-w-full max-h-full object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -204,7 +191,7 @@ const SkillsSection = () => {
         <img
           src="/icons/eth.png"
           alt="EtherJs"
-          className="h-12 w-12 object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -215,7 +202,7 @@ const SkillsSection = () => {
         <img
           src="/icons/pinata.svg"
           alt="Pinata"
-          className="max-w-full max-h-full object-contain"
+          className="max-w-16 max-h-16 object-contain"
         />
       ),
     },
@@ -227,7 +214,7 @@ const SkillsSection = () => {
           <img
             src="/icons/metamask-light.svg"
             alt="Metamask"
-            className="max-w-full max-h-full scale-150 object-contain"
+            className="max-w-full max-h-full scale-[2] m-1 object-contain"
           />
         ) : (
           <img
@@ -243,7 +230,7 @@ const SkillsSection = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 190.4 215.2"
-          className="scale-90 object-contain"
+          className="scale-75 object-contain"
         >
           <path
             className="st0"
@@ -346,8 +333,8 @@ const SkillsSection = () => {
       name: "Vercel",
       icon: (
         <svg
-          width="100"
-          height="100"
+          width="90"
+          height="90"
           viewBox="0 0 100 100"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
@@ -372,14 +359,14 @@ const SkillsSection = () => {
   const SkillMarquee = ({ skills, reverse }) => {
     return (
       <motion.div
-        className="flex space-x-8 w-max"
+        className="flex space-x-5 w-max"
         initial={{ x: reverse ? "100%" : "-100%" }}
         animate={{ x: reverse ? "-100%" : "100%" }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       >
         {skills.map((skill, index) => (
-          <div key={index} className="flex flex-col items-center p-4">
-            <div className="w-16 h-16 text-black dark:text-white">
+          <div key={index} className="flex flex-col items-center p-6">
+            <div className="w-24 h-24 text-black dark:text-white">
               {skill.icon}
             </div>
           </div>
@@ -416,11 +403,15 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section className="w-full my-32 px-6 md:px-16 lg:px-52  transition-all overflow-hidden">
+    <section className="w-full mt-16 mb-20 px-6 md:px-16 lg:px-52  transition-all overflow-hidden">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5 mb-8">
         {/* Title */}
-        <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-          My Tech Stack
+        <h2
+          className={`text-3xl font-semibold leading-9 tracking-tight sm:text-3xl sm:leading-10 md:text-4xl md:leading-14  ${
+            theme === "dark" ? "text-gray-100" : "text-blue-500"
+          }`}
+        >
+          TECH STACK
         </h2>
 
         {/* Subtitle */}
@@ -486,20 +477,20 @@ const SkillsSection = () => {
         }
 
         .icon-wrapper {
-          padding: 16px;
+          padding: 20px;
           position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 80px;
-          height: 80px;
+          width: 100px;
+          height: 100px;
           transform-style: preserve-3d;
           flex-shrink: 0;
         }
 
         .skill-icon {
-          width: 48px;
-          height: 48px;
+          width: 80px;
+          height: 80px;
           display: flex;
           align-items: center;
           justify-content: center;

@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* Apply Ubuntu font globally */
 body {
-          font-family: "League Spartan", "sans-serif", "Helvetica";
-
+          font-family: "League Spartan", "Hanken Grotesk", "sans-serif", "Helvetica";
+          font-optical-sizing: auto;
 }
 
 
