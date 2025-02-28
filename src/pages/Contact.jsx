@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
+import SocialLinks from "../components/SocialLinks";
 
 export default function Contact() {
   return (
@@ -11,7 +12,6 @@ export default function Contact() {
         Always eager to collaborate, innovate, and take on exciting challenges.
         If you have an idea or opportunity, let's connect and make it happen!
       </p>
-
       <div className="flex space-x-6">
         <motion.a
           href="tel:+919729837834"
@@ -28,6 +28,10 @@ export default function Contact() {
         >
           <Mail size={26} />
         </motion.a>
+      </div>
+
+      <div className="pt-6">
+        <SocialLinks />
       </div>
     </section>
   );
