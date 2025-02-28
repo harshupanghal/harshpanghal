@@ -22,7 +22,7 @@ export default function Contact() {
         </motion.a>
 
         <motion.a
-          href="mailto:your.email@example.com"
+          href="mailto:work.harshpanghal@gmail.com"
           className="flex items-center justify-center w-14 h-14 rounded-full border border-current shadow-lg dark:text-white text-black transition-all ease-in hover:scale-110"
           whileHover={{ rotate: -10 }}
         >

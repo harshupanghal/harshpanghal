@@ -24,7 +24,7 @@ const WhatIDo = () => {
           <div
             className={`h-full pt-12 pb-10 pl-6 pr-10 border rounded-md  border-bline ${
               theme === "dark"
-                ? "bg-[black]/70 border-gray-700 text-gray-100"
+                ? "bg-[black]/80 border-gray-700 text-gray-100"
                 : "bg-white border-gray-200 text-gray-950"
             }`}
           >
