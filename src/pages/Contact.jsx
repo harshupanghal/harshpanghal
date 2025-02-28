@@ -4,7 +4,7 @@ import SocialLinks from "../components/SocialLinks";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col items-center text-center my-32  px-6 space-y-4 pt-6 pb-8 md:space-y-5 transition-transform duration-300 ">
+    <section className="flex flex-col items-center text-center mt-32  px-6 space-y-4 pt-6 pb-8 md:space-y-5 transition-transform duration-300 ">
       <h2 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
         Let's Build Something Great Together
       </h2>
@@ -15,8 +15,8 @@ export default function Contact() {
       <div className="flex space-x-6">
         <motion.a
           href="tel:+919729837834"
-          className="flex items-center justify-center w-14 h-14 rounded-full border border-current shadow-lg  dark:text-white text-black transition-all  hover:scale-110"
-          whileHover={{ rotate: 10 }}
+          className="flex items-center justify-center w-14 h-14 rounded-full border border-current shadow-lg  dark:text-white text-black transition-all ease-in hover:scale-110"
+          whileHover={{ rotate: 20 }}
         >
           <Phone size={26} />
         </motion.a>

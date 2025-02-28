@@ -2,10 +2,13 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Added useLocation
 
 const NavLink = React.memo(({ link, isMobile = false, setMenuOpen }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const location = useLocation(); // Get current location
+  const to = `/${link.toLowerCase()}`;
+  const isActive = location.pathname === to; // Check active state
 
   return (
     <motion.div
@@ -15,8 +18,10 @@ const NavLink = React.memo(({ link, isMobile = false, setMenuOpen }) => {
       }`}
     >
       <Link
-        to={`/${link.toLowerCase()}`}
-        className="hover:text-gray-800 dark:hover:text-blue-200"
+        to={to}
+        className={`${
+          isActive ? "text-gray-900 dark:text-blue-300" : ""
+        } hover:text-gray-800 dark:hover:text-blue-200`} // Added active state class
         onClick={() => isMobile && setMenuOpen(false)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
