@@ -7,10 +7,12 @@ import Projects from "./pages/Projects";
 import TechSkills from "./pages/SkillsPage";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Background from "./components/Background";
 
 function App() {
   return (
     <>
+      <Background />
       <Header />
       <Routes>
         <Route path="/" element={<Landing />} />

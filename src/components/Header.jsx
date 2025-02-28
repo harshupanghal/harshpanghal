@@ -194,7 +194,7 @@ const Header = () => {
     <header
       className={`w-full fixed top-0 z-50 transition-all duration-300 pt-6 pb-2 ${
         scrolled
-          ? "backdrop-blur-md bg-[rgba(255,255,255,0.7)] dark:bg-[black]"
+          ? "backdrop-blur-lg dark:backdrop-blur-3xl bg-[rgba(255,255,255,0.7)] dark:bg-[black]"
           : "bg-transparent"
       }`}
     >

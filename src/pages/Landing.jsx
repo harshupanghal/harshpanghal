@@ -7,6 +7,7 @@ import SocialLinks from "../components/SocialLinks";
 import SkillsSection from "../components/Skills";
 import ContactSection from "../components/Contact";
 import WhatIDo from "../components/WhatIDo";
+// import Background from "../components/Background";
 
 const Landing = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -47,7 +48,7 @@ const Landing = () => {
       {/*        INTRO MAIN          */}
       <main className="flex flex-col justify-center min-h-screen py-16 sm:py-32 px-6 md:px-24 lg:px-60">
         {/* Name Animation */}
-
+        {/* <Background /> */}
         <motion.h1
           className={`text-8xl md:text-8xl font-semibold mt-10  ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
