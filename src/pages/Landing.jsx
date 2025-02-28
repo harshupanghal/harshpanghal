@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 import { useTheme } from "../contexts/ThemeContext";
-import Projects from "../components/Projects";
 import SocialLinks from "../components/SocialLinks";
 import SkillsSection from "../components/Skills";
-import ContactSection from "../components/Contact";
+import Contact from "./Contact";
 import WhatIDo from "../components/WhatIDo";
 // import Background from "../components/Background";
 
@@ -149,7 +148,7 @@ const Landing = () => {
       </div>
       {/*          CONTACT DETAILS        */}
       <div className="mt-4 sm:mt-6">
-        <ContactSection />
+        <Contact />
       </div>
     </>
   );

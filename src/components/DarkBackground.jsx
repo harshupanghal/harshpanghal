@@ -13,6 +13,7 @@ const Background = () => {
     // Scene & Camera
     const scene = new THREE.Scene();
     sceneRef.current = scene;
+
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -29,7 +30,7 @@ const Background = () => {
     rendererRef.current = renderer;
 
     // Star Field
-    const starCount = 400; // Reduced for better performance
+    const starCount = 400; // Adjusted for better performance
     const starGeometry = new THREE.BufferGeometry();
     const starPositions = new Float32Array(starCount * 3);
 
@@ -92,10 +93,15 @@ const Background = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
+
       if (rendererRef.current) {
         rendererRef.current.dispose();
-        mountRef.current.removeChild(rendererRef.current.domElement);
+        if (mountRef.current?.contains(rendererRef.current.domElement)) {
+          mountRef.current.removeChild(rendererRef.current.domElement);
+        }
       }
+
+      // Proper cleanup
       sceneRef.current = null;
       starsRef.current = null;
       rendererRef.current = null;

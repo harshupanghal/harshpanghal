@@ -425,7 +425,7 @@ const SkillsSection = () => {
       {/* Scroller with Side Blur and Curved Effect */}
       <div className="relative w-full overflow-hidden perspective">
         {/* Left Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[black] dark:via-[black]/70 dark:to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white/90 via-white/80 to-transparent dark:from-[black] dark:via-[black]/70 dark:to-transparent z-10 pointer-events-none"></div>
 
         {/* Scrolling Icons with Curved Effect */}
         <div className="curved-scroller">

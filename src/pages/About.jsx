@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import SocialLinks from "../components/SocialLinks";
 import TechSkills from "./SkillsPage"; // Import your skills component
-import { Link } from "react-router-dom";
 
 // Timeline data for 5 years (2021-2025)
 const timelineData = [
@@ -45,14 +44,14 @@ const AboutSection = () => {
         {/* Left Side: Name & Title */}
         <div className="text-center md:text-left">
           <h1
-            className={`text-4xl md:text-5xl font-bold ${
+            className={`text-4xl md:text-5xl font-medium ${
               theme === "dark" ? "text-gray-100" : "text-gray-800"
             }`}
           >
             Harsh Panghal
           </h1>
           <p
-            className={`text-xl md:text-2xl mt-2 ${
+            className={`text-lg md:text-xl mt-2 ${
               theme === "dark" ? "text-gray-300" : "text-gray-700"
             }`}
           >

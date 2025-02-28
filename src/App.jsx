@@ -1,18 +1,29 @@
-import Landing from "./pages/Landing";
+import { useTheme } from "./contexts/ThemeContext";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import TechSkills from "./pages/SkillsPage";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-import Background from "./components/Background";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import DarkBackground from "./components/DarkBackground";
+import LightBackground from "./components/LightBackground";
 
 function App() {
+  const { theme } = useTheme();
+
   return (
     <>
-      <Background />
+      {/* Background updates instantly when theme changes */}
+      {theme === "dark" ? (
+        <DarkBackground key="dark" />
+      ) : (
+        <LightBackground key="light" />
+      )}
+
+      {/* Main Content */}
       <Header />
       <Routes>
         <Route path="/" element={<Landing />} />
