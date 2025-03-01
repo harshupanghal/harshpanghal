@@ -58,7 +58,7 @@ const languages = [
     name: "HTML",
     icon: (
       <img
-        src="/icons/html5.svg"
+        src="/icons/html5.png"
         alt="HTML"
         className="h-12 w-12 object-contain"
       />
@@ -69,7 +69,7 @@ const languages = [
     name: "CSS",
     icon: (
       <img
-        src="/icons/css3.svg"
+        src="/icons/css3.png"
         alt="CSS"
         className="h-12 w-12 object-contain"
       />
@@ -146,7 +146,7 @@ const blockchain = [
       <img
         src="/icons/hardhat.svg"
         alt="Hardhat"
-        className="max-w-full max-h-full scale-110 object-contain"
+        className="max-w-full h-20 scale-110 object-contain"
       />
     ),
   },
@@ -193,7 +193,7 @@ const blockchain = [
       <img
         src="/icons/ipfs.svg"
         alt="IPFS"
-        className="max-w-full max-h-full object-contain"
+        className="max-w-full max-h-full scale-125 object-contain"
       />
     ),
   },
@@ -202,9 +202,9 @@ const blockchain = [
     name: "Metamask",
     icon: (
       <img
-        src="/icons/metamask.png"
+        src="/icons/metamask.svg"
         alt="Metamask"
-        className="max-w-full max-h-full object-contain"
+        className="max-w-full max-h-full scale-[1.75] object-contain"
       />
     ),
   },
@@ -226,9 +226,9 @@ const web = [
     name: "Express.js",
     icon: (
       <img
-        src="/icons/express.svg"
+        src="/icons/express.png"
         alt="ExpressJs"
-        className="w-28 h-24 scale-[2] object-contain "
+        className="w-28 h-20  object-contain "
       />
     ),
   },
@@ -260,7 +260,7 @@ const web = [
       <svg
         viewBox="0 0 32 32"
         fill="none"
-        className="w-40 h-40 scale-110 text-black dark:text-white"
+        className="w-40 h-40  text-black dark:text-white"
       >
         <path
           fillRule="evenodd"
@@ -344,12 +344,12 @@ const devTools = [
   },
 
   {
-    name: "Google OAuth2",
+    name: "OAuth2",
     icon: (
       <img
         src="/icons/google.svg"
         alt="Google OAuth2"
-        className="max-w-full max-h-full scale-50 object-contain"
+        className="w-40 h-40 object-contain"
       />
     ),
   },
