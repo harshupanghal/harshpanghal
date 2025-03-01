@@ -95,7 +95,7 @@ const AboutSection = () => {
       <div className="mb-16">
         <h2
           className={`text-xl font-medium text-center mb-6 mt-20 ${
-            theme === "dark" ? "text-blue-400" : "text-gray-800"
+            theme === "dark" ? "text-blue-400" : "text-blue-700"
           }`}
         >
           Want to know more about me? Here you go..{" "}
