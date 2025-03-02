@@ -49,7 +49,7 @@ const Landing = () => {
         {/* Name Animation */}
         {/* <Background /> */}
         <motion.h1
-          className={`text-8xl md:text-8xl font-semibold mt-10  ${
+          className={`text-8xl md:text-8xl font-semibold mt-6 md:mt-10   ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
           }`}
           initial={{ opacity: 0, y: 20 }}
