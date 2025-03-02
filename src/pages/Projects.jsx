@@ -12,22 +12,28 @@ const Projects = () => {
 
   const projects = [
     {
-      name: "Free Flow",
-      link: "#",
-      tech: "React, Solidity, Web3.js",
-      image: "/image.png",
-    },
-    {
-      name: "Job Connect",
-      link: "#",
-      tech: "Next.js, Tailwind, Firebase",
+      name: "Vaultify",
+      link: "https://vaultify-hazel.vercel.app/",
+      tech: "Solidity, React, Web3.js",
       image: "/vaultify.png",
     },
     {
+      name: "Free Flow",
+      link: "https://free-flow-eight.vercel.app/",
+      tech: "Solidity, React.js, Eth.js ",
+      image: "/freeflow.png",
+    },
+    {
       name: "Portfolio",
-      link: "#",
+      link: "https://harshpanghal.vercel.app/",
       tech: "React, Tailwind, Framer Motion",
-      image: "/image.png",
+      image: "/portfolio.png",
+    },
+    {
+      name: "Password Generator",
+      link: "https://password-generator-three-beryl.vercel.app/",
+      tech: "React, Tailwind",
+      image: "/password.png",
     },
   ];
 
