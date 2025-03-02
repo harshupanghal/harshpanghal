@@ -120,8 +120,8 @@ const Projects = () => {
 
               {/* Hover Preview - Image in the middle with animation */}
               <div
-                className={`absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                w-60 h-60 md:w-80 md:h-48 z-10 rounded-lg shadow-2xl bg-white dark:bg-gray-900 
+                className={`absolute left-1/4 top-1/2 bottom-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                w-60 h-60 md:w-80 md:h-48 py-2 rounded-lg shadow-2xl bg-white dark:bg-gray-900 
  pointer-events-none transition-all duration-500 ease-in-out
                 ${
                   hoveredProject === index
