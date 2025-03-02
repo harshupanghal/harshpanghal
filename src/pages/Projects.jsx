@@ -30,6 +30,18 @@ const Projects = () => {
       image: "/portfolio.png",
     },
     {
+      name: "RustyBlocks",
+      link: "https://github.com/harshupanghal/Core-Blockchain-Using-RUST",
+      tech: "Rust, Blockchain",
+      image: "/rust.png",
+    },
+    {
+      name: "Blockchain In Govt.",
+      link: "/Blockchain Revolutionizing Government Services.pdf",
+      tech: "Blockchain, Databases, System Design",
+      image: "/blockchain.png",
+    },
+    {
       name: "Password Generator",
       link: "https://password-generator-three-beryl.vercel.app/",
       tech: "React, Tailwind",
