@@ -17,11 +17,11 @@ function App() {
   return (
     <>
       {/* Background updates instantly when theme changes */}
-      {theme === "dark" ? (
+      {/* {theme === "dark" ? (
         <DarkBackground key="dark" />
       ) : (
         <LightBackground key="light" />
-      )}
+      )} */}
 
       {/* Main Content */}
       <Header />
