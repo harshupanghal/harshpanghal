@@ -25,7 +25,7 @@ const SocialLinks = () => {
     },
     { href: "https://x.com/HarshPanghal18", icon: <FaTwitter /> },
     { href: "mailto:work.harshpanghal@gmail.com", icon: <FaEnvelope /> },
-    { href: "/resume.pdf", icon: <FaFilePdf /> },
+    { href: "/harsh'sResume.pdf", icon: <FaFilePdf /> },
   ];
 
   return (

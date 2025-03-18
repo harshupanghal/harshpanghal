@@ -109,7 +109,7 @@ const Projects = () => {
               }
             >
               {/* Left: Project Name */}
-              <div className="text-2xl transition-all duration-300 ease-in-out group-hover:-translate-x-3 group-hover:scale-50 sm:text-5xl ">
+              <div className="text-2xl transition-all duration-300 ease-in-out group-hover:-translate-x-3 group-hover:scale-110 md:group-hover:scale-50 sm:text-5xl ">
                 {project.name}
               </div>
 
