@@ -13,7 +13,7 @@ const Projects = () => {
   const projects = [
     {
       name: "Avsar",
-      link: "https://avsar-chi.vercel.app/",
+      link: "https://avsar.vercel.app/",
       tech: "NextJs, MongoDB, Cloudinary ",
       image: "/avsar.png",
     },
