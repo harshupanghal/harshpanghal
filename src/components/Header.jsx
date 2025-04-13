@@ -47,7 +47,7 @@ const HeaderContent = React.memo(
 
     return (
       <>
-        <div className="max-w-5xl mx-auto px-16 mt-0">
+        <div className="max-w-5xl mx-auto lg:px-16 px-6 mt-0">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
 
@@ -62,7 +62,7 @@ const HeaderContent = React.memo(
             >
               <Link to="/" className="relative">
                 <motion.h1
-                  className="text-xl font-bold text-gray-900 dark:text-gray-200 transition-all"
+                  className="text-2xl font-bold text-gray-900 dark:text-gray-200 transition-all"
                   whileHover={{
                     letterSpacing: "2px", // Subtle letter spacing effect
                     transition: { duration: 0.3 },
@@ -151,7 +151,7 @@ const HeaderContent = React.memo(
               exit={{ opacity: 0, y: -20, scale: 0.9 }}
               transition={{
                 duration: 0.4,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                ease: [0.25, 0.25, 0.25, 0.25],
               }}
               className={`md:hidden absolute w-full shadow-lg rounded-b-xl transition-all 
         ${
