@@ -45,11 +45,11 @@ const Landing = () => {
       {/*            HEADER            */}
       {/* <Header /> */}
       {/*        INTRO MAIN          */}
-      <main className="flex flex-col justify-center min-h-screen py-16 sm:py-32 px-6 md:px-24 lg:px-60">
+      <main className="flex flex-col justify-center min-h-screen lg:py-16 sm:py-0 px-6 md:px-24 lg:px-60">
         {/* Name Animation */}
         {/* <Background /> */}
         <motion.h1
-          className={`text-8xl md:text-8xl font-semibold mt-6 md:mt-10   ${
+          className={`text-8xl md:text-8xl font-semibold mt-0 md:mt-10   ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
           }`}
           initial={{ opacity: 0, y: 20 }}
@@ -69,8 +69,8 @@ const Landing = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
           I build things in{" "}
-          <span className="text-blue-500 dark:text-blue-400">Web2</span> &{" "}
-          <span className="text-[#0AE448]">Web3</span>.
+          <span className="text-sky-600 dark:text-sky-400">Web2</span> &{" "}
+          <span className="text-amber-500 dark:text-amber-400">Web3</span>.
         </motion.h2>
 
         {/* Social Links */}
