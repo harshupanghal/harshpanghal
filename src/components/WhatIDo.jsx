@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 
 const WhatIDo = () => {
-  // Assume theme is imported from a context
-  // Replace ThemeContext with your actual theme context
+  
   const { theme } = useTheme();
 
   return (
