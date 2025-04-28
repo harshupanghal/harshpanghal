@@ -24,6 +24,12 @@ const Projects = () => {
       image: "/vaultify.png",
     },
     {
+      name: "BlockTick",
+      link: "https://blocktick.vercel.app/",
+      tech: "Next.js, Solidity, Ether.js, Shadcn",
+      image: "/blocktick.png",
+    },
+    {
       name: "Free Flow",
       link: "https://free-flow-eight.vercel.app/",
       tech: "Solidity, React.js, Eth.js ",
