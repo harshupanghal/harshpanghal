@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import DarkBackground from "./components/DarkBackground";
 import LightBackground from "./components/LightBackground";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const { theme } = useTheme();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 }
