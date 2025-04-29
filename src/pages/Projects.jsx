@@ -20,13 +20,13 @@ const Projects = () => {
     {
       name: "Vaultify",
       link: "https://vaultify-hazel.vercel.app/",
-      tech: "Solidity, React, Web3.js",
+      tech: "Solidity, MERN, Web3.js",
       image: "/vaultify.png",
     },
     {
       name: "BlockTick",
       link: "https://blocktick.vercel.app/",
-      tech: "Next.js, Solidity, Ether.js, Shadcn",
+      tech: "Next.js, Solidity, Eth.js, Shadcn",
       image: "/blocktick.png",
     },
     {
@@ -44,7 +44,7 @@ const Projects = () => {
     {
       name: "RustyBlocks",
       link: "https://github.com/harshupanghal/Core-Blockchain-Using-RUST",
-      tech: "Rust, Blockchain",
+      tech: "Rust, Core Blockchain",
       image: "/rust.png",
     },
     {
