@@ -45,7 +45,7 @@ const AboutSection = () => {
   const currentTimeline = timelineData[selectedIndex];
 
   return (
-    <section className="py-16 px-6 md:px-24 lg:px-60 mt-24">
+    <section className="py-16 px-6 md:px-24 lg:px-60 mt-16 md:mt-24">
       {/* Top Header */}
       <div className="flex flex-col md:flex-row items-center justify-between mb-12">
         {/* Left Side: Name & Title */}
@@ -74,14 +74,12 @@ const AboutSection = () => {
 
       {/* Longer Introduction */}
       <div
-        className={`mb-12 text-justify  ${
+        className={`-mb-2 text-justify  ${
           theme === "dark" ? "text-gray-300" : "text-gray-700"
         }`}
       >
         <p className="text-lg">
-          Currently based in India, a final year CS student, handling deadlines
-          while mastering different technologies. Always on the lookout for
-          opportunities, because why settle when you can explore? Skilled in a
+          Currently based in India, a fresh CS graduate, mastering different technologies. Always on the lookout for opportunities, because why settle when you can explore? Skilled in a
           bit of everything—tech, reading books, writing and even the fine art
           of overthinking. Discipline and punctuality bring me happiness (yes,
           I’m that person). If something sparks my interest, I have to dive
@@ -89,6 +87,10 @@ const AboutSection = () => {
           things (sometimes on purpose), and I keep going. That’s the fun part,
           isn’t it?
         </p>
+      </div>
+
+      <div className="">
+        <TechSkills />
       </div>
 
       {/* Timeline Slider */}
@@ -180,9 +182,7 @@ const AboutSection = () => {
       </div>
 
       {/* Skills Section */}
-      <div className="mt-12">
-        <TechSkills />
-      </div>
+      
 
       <style jsx>{`
         /* Hide default appearance of range input thumb */

@@ -30,7 +30,7 @@ const LightModeBackground = () => {
     scene.background = new THREE.Color("#F7F9FC"); // Soft Light Gray
 
     // Star Field
-    const starCount = 500;
+    const starCount = 200;
     const starGeometry = new THREE.BufferGeometry();
     const starPositions = new Float32Array(starCount * 3);
     const starColors = new Float32Array(starCount * 3);

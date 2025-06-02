@@ -351,31 +351,15 @@ const SkillsSection = () => {
     startScrolling(row2Ref, "right");
   }, []);
 
+
   return (
-    <section className="w-full mt-16 mb-20 px-6 md:px-16 lg:px-52  transition-all overflow-hidden">
-      <div className="space-y-2 pt-6 pb-8 md:space-y-5 mb-8">
-        {/* Title */}
-        <h2
-          className={`text-3xl font-semibold leading-9 tracking-tight sm:text-3xl sm:leading-10 md:text-4xl md:leading-14  ${
-            theme === "dark" ? "text-gray-100" : "text-blue-500"
-          }`}
-        >
-          TECH STACK
-        </h2>
-
-        {/* Subtitle */}
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-          My expertise spans a diverse range of technologies, enabling me to
-          deliver comprehensive and cutting-edge solutions across various
-          platforms.
-        </p>
-      </div>
-
+    <section className="transition-all overflow-hidden">
+      
       {/* Scroller with Side Blur and Curved Effect */}
       <div className="relative w-full overflow-hidden perspective">
         {/* Left Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white/90 via-white/80 to-transparent dark:from-[black] dark:via-[black]/70 dark:to-transparent z-10 pointer-events-none"></div>
-
+        <div className="absolute left-0 top-0 bottom-0 w-12  z-10 pointer-events-none"></div>
+        
         {/* Scrolling Icons with Curved Effect */}
         <div className="curved-scroller">
           <div className="curved-scroller__inner">
@@ -387,25 +371,25 @@ const SkillsSection = () => {
             ))}
           </div>
         </div>
-
+        
         {/* Right Fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-[black] dark:via-[black]/70 dark:to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-12  pointer-events-none"></div>
       </div>
-
+      
       {/* Styles */}
       <style jsx="true">{`
         .perspective {
           perspective: 200px;
           height: 100px;
         }
-
+        
         .curved-scroller {
           overflow: hidden;
           width: 100%;
           height: 100%;
           position: relative;
         }
-
+        
         .curved-scroller__inner {
           display: flex;
           white-space: nowrap;
@@ -415,7 +399,7 @@ const SkillsSection = () => {
           left: 0;
           transform-style: preserve-3d;
         }
-
+        
         @keyframes scroll-curved {
           from {
             transform: translateX(0);
@@ -424,17 +408,18 @@ const SkillsSection = () => {
             transform: translateX(-50%);
           }
         }
-
+        
         .icon-wrapper {
-          width: 100px; /* Fixed size for all icons */
-          height: 100px; /* Fixed size for all icons */
+          width: 100px;
+          height: 100px;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
           position: relative;
+          transition: all 0.3s ease;
         }
-
+        
         .skill-icon {
           width: 70px;
           height: 70px;
@@ -442,54 +427,116 @@ const SkillsSection = () => {
           align-items: center;
           justify-content: center;
           object-fit: contain;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.1));
         }
-
+        
         .skill-icon img,
         .skill-icon svg {
           max-width: 100%;
           max-height: 100%;
+          transition: all 0.3s ease;
         }
-
+        
         .icon-wrapper:nth-child(odd) {
           transform: translateZ(-5px) rotateX(5deg);
         }
-
+        
         .icon-wrapper:nth-child(even) {
           transform: translateZ(-5px) rotateX(-5deg);
         }
-
+        
         /* Edge icons have more pronounced curve */
         .curved-scroller__inner .icon-wrapper:nth-child(-n + 3),
         .curved-scroller__inner .icon-wrapper:nth-last-child(-n + 3) {
           transform: translateZ(-10px) rotateX(20deg);
         }
-
+        
         .skill-tooltip {
           position: absolute;
           bottom: -10px;
           left: 50%;
           transform: translateX(-50%);
-          background-color: rgba(0, 0, 0, 0.7);
+          background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(139, 92, 246, 0.9));
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(99, 102, 241, 0.2);
           color: white;
           font-size: 12px;
-          padding: 4px 8px;
-          border-radius: 4px;
+          font-weight: 500;
+          padding: 6px 10px;
+          border-radius: 8px;
           opacity: 0;
-          transition: opacity 0.3s ease-in-out;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           pointer-events: none;
           white-space: nowrap;
+          box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
         }
-
+        
+        /* Dark mode tooltip styles */
+        .dark .skill-tooltip {
+          background: linear-gradient(135deg, rgba(71, 85, 105, 0.95), rgba(100, 116, 139, 0.95));
+          border: 1px solid rgba(148, 163, 184, 0.3);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
         .icon-wrapper:hover .skill-tooltip {
           opacity: 1;
+          transform: translateX(-50%) translateY(-4px);
         }
-
+        
         .icon-wrapper:hover .skill-icon {
-          transform: scale(1.2);
+          transform: scale(1.2) translateY(-2px);
+          filter: drop-shadow(0 8px 16px rgba(99, 102, 241, 0.3));
+        }
+        
+        /* Enhanced hover glow effect */
+        .icon-wrapper:hover::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80px;
+          height: 80px;
+          background: radial-gradient(circle, rgba(99, 102, 241, 0.2), transparent 70%);
+          border-radius: 50%;
+          z-index: -1;
+          animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% {
+            opacity: 0.5;
+            transform: translate(-50%, -50%) scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+          }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .icon-wrapper {
+            width: 80px;
+            height: 80px;
+          }
+          
+          .skill-icon {
+            width: 60px;
+            height: 60px;
+          }
+          
+          .skill-tooltip {
+            font-size: 11px;
+            padding: 4px 8px;
+          }
         }
       `}</style>
     </section>
   );
 };
+
+
 
 export default SkillsSection;
