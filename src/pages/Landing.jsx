@@ -363,7 +363,7 @@ const HarshPanghalPortfolio = () => {
 				>
 					{/* Greeting */}
 					<motion.p
-						className="text-indigo-400 dark:text-indigo-300 text-lg mb-4 font-mono"
+						className="text-indigo-400 dark:text-indigo-300 text-lg mb-6 font-mono"
 						initial={{ opacity: 0, x: -20 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ delay: 0.3 }}
@@ -520,6 +520,7 @@ const HarshPanghalPortfolio = () => {
 					</motion.div>
 				</motion.div>
 			</section>
+
 
 			{/* Skills showcase */}
 			<section id="skills-section" className="py-16 px-6 md:px-24 lg:px-60">
