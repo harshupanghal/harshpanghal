@@ -30,7 +30,11 @@ const SocialLinks = () => {
 
   return (
     <motion.div
-      className="flex gap-6"
+      className={` p-3 rounded-xl backdrop-blur-md border flex gap-6 ${
+            theme === "dark"
+              ? "bg-[#0a0a0a]/80 border-slate-700/50 "
+              : "text-gray-600 hover:text-blue-600 "
+          }shadow-lg`}
       initial={{ opacity: 0 }}
       animate={{ opacity: isMounted ? 1 : 0 }}
       transition={{ duration: 1, delay: 0.5 }}
@@ -41,10 +45,10 @@ const SocialLinks = () => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-xl md:text-2xl transition-transform transform hover:-translate-y-1 ${
+          className={`text-xl md:text-2xl transition-transform   transform hover:-translate-y-1 ${
             theme === "dark"
-              ? "text-gray-300 hover:text-blue-400"
-              : "text-gray-600 hover:text-blue-600"
+              ? "bg-[#0a0a0a]/80 border-slate-700/50 text-gray-300 hover:text-blue-400"
+              : "text-gray-600 hover:text-blue-600 bg-white/80 border-gray-200/50"
           }`}
         >
           {icon}
@@ -55,3 +59,4 @@ const SocialLinks = () => {
 };
 
 export default SocialLinks;
+

@@ -1,9 +1,17 @@
 import { useEffect, useState, useRef, useMemo } from "react";
-import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { Link } from "react-router-dom";
 import SkillsSection from "../components/Skills";
-import { BiRightArrowCircle } from "react-icons/bi";
+import SocialLinks from "../components/SocialLinks";
+import { FaFilePdf } from "react-icons/fa";
+import {
+	BiRightArrow,
+	BiRightArrowAlt,
+	BiRightArrowCircle,
+} from "react-icons/bi";
+
+const href = "/HARSH's_RESUME.pdf";
 
 // Enhanced Cursor with particle trail
 const EnhancedCursor = () => {
@@ -22,12 +30,12 @@ const EnhancedCursor = () => {
 		<>
 			{/* Main cursor glow */}
 			<motion.div
-				className="fixed pointer-events-none w-32 h-32 rounded-full z-40"
+				className="fixed pointer-events-none w-36 h-36 rounded-full z-40"
 				style={{
 					left: mousePos.x - 64,
 					top: mousePos.y - 64,
 					background:
-						"radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)",
+						"radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 80%)",
 					filter: "blur(8px)",
 				}}
 				animate={{
@@ -268,23 +276,6 @@ const HarshPanghalPortfolio = () => {
 	const { scrollYProgress } = useScroll();
 	const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
-	// const skills = [
-	// 	"React/Next.js",
-	// 	"JavaScript",
-	// 	"Node.js",
-	// 	"Solidity",
-	// 	"Web3.js/Ethers",
-	// 	"Smart Contracts",
-	// 	"DeFi Protocols",
-	// 	"AWS/Vercel",
-	// 	"MongoDb",
-	// 	"GraphQL",
-	// 	"Tailwind CSS",
-	// 	"Framer Motion",
-	// 	"Docker",
-	// 	"Git/GitHub",
-	// ];
-
 	const web3Skills = ["Blockchain", "Smart Contracts", "DeFi", "NFTs", "DAOs"];
 	const web2Skills = ["Full-Stack", "APIs", "Databases", "Cloud Deploy"];
 
@@ -394,11 +385,11 @@ const HarshPanghalPortfolio = () => {
 									: "bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
 							}`}
 						>
-							<div className="text-[#03e6ff]  inline-block font-semibold">
+							<div className="dark:text-[#fff] text-[#0396ff]  inline-block font-semibold">
 								{renderAnimatedName("Harsh", 0.1)}
 							</div>
-              <span>{" "}</span>
-							<div className="text-[#03e6ff] inline-block font-semibold">
+							<span> </span>
+							<div className="dark:text-[#fff] text-[#0396ff] inline-block font-semibold">
 								{renderAnimatedName("Panghal.", 0.1)}
 							</div>
 						</div>
@@ -418,7 +409,7 @@ const HarshPanghalPortfolio = () => {
 
 					{/* Enhanced CTA buttons */}
 					<motion.div
-						className="flex flex-col sm:flex-row gap-4 mb-8"
+						className="flex  items-center sm:flex-row gap-4 mb-8 pt-6"
 						initial={{ opacity: 0, scale: 0.8 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ delay: 1.7 }}
@@ -426,7 +417,7 @@ const HarshPanghalPortfolio = () => {
 						{/* About Button */}
 						<Link to="/about">
 							<motion.button
-								className="relative px-8 py-4 rounded-lg font-semibold text-lg overflow-hidden group text-white  shadow-lg shadow-cyan-500/30 dark:shadow-cyan-400/20"
+								className="relative px-8 py-3 rounded-lg font-semibold text-lg overflow-hidden group text-white bg-gray-100 dark:bg-[#0404058d] shadow-lg shadow-cyan-500/30 dark:shadow-cyan-400/20"
 								whileHover="hover"
 								whileTap={{ scale: 0.98 }}
 							>
@@ -440,7 +431,9 @@ const HarshPanghalPortfolio = () => {
 								/>
 
 								{/* Button text */}
-								<span className="relative z-10">About Me {BiRightArrowCircle}</span>
+								<span className="relative z-10 text-gray-900 dark:text-gray-100 ">
+									About Me
+								</span>
 
 								{/* Shine effect */}
 								<motion.div
@@ -451,12 +444,34 @@ const HarshPanghalPortfolio = () => {
 							</motion.button>
 						</Link>
 
-						{/* Connect Button */}
+						{/* Resume button */}
+						<a
+							href="HARSH's_RESUME.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<button
+								type="submit"
+								className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 text-gray-900 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden  rounded-full group "
+							>
+								Resume
+								<svg
+									className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+									viewBox="0 0 16 19"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+										className="fill-gray-800 group-hover:fill-gray-800"
+									></path>
+								</svg>
+							</button>
+						</a>
 					</motion.div>
 
-					{/* Social proof */}
+					{/* Social proof with mobile social links */}
 					<motion.div
-						className={`flex items-center gap-6 text-sm ${
+						className={`flex items-center gap-6 text-sm mt-12 ${
 							theme === "dark" ? "text-slate-400" : "text-gray-600"
 						}`}
 						initial={{ opacity: 0, y: 20 }}
@@ -464,7 +479,7 @@ const HarshPanghalPortfolio = () => {
 						transition={{ delay: 2 }}
 					>
 						<motion.div
-							className="flex items-center gap-2"
+							ClassName="flex items-center gap-2"
 							whileHover={{
 								scale: 1.05,
 								color: theme === "dark" ? "#818cf8" : "#6366f1",
@@ -472,11 +487,13 @@ const HarshPanghalPortfolio = () => {
 						>
 							<span>Web 2</span>
 						</motion.div>
+
 						<div
 							className={`h-4 w-px ${
 								theme === "dark" ? "bg-slate-600" : "bg-gray-400"
 							}`}
 						/>
+
 						<motion.div
 							className="flex items-center gap-2"
 							whileHover={{
@@ -491,34 +508,17 @@ const HarshPanghalPortfolio = () => {
 								theme === "dark" ? "bg-slate-600" : "bg-gray-400"
 							}`}
 						/>
-						<span>Full-stack expertise</span>
+						<motion.div
+							className="flex items-center gap-2"
+							whileHover={{
+								scale: 1.05,
+								color: theme === "dark" ? "#818cf8" : "#6366f1",
+							}}
+						>
+							<span>Full Stack</span>
+						</motion.div>
 					</motion.div>
 				</motion.div>
-
-				{/* Scroll indicator */}
-				{/* <motion.div
-					className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-					animate={{ y: [0, 10, 0] }}
-					transition={{ duration: 2, repeat: Infinity }}
-					onClick={() => {
-						document.getElementById("skills-section")?.scrollIntoView({
-							behavior: "smooth",
-							block: "start",
-						});
-					}}
-				>
-					<div
-						className={`w-6 h-10 border-2 rounded-full p-2 ${
-							theme === "dark" ? "border-slate-400" : "border-gray-600"
-						}`}
-					>
-						<motion.div
-							className="w-1 h-3 bg-indigo-400 dark:bg-indigo-300 rounded-full mx-auto"
-							animate={{ y: [0, 12, 0] }}
-							transition={{ duration: 2, repeat: Infinity }}
-						/>
-					</div>
-				</motion.div> */}
 			</section>
 
 			{/* Skills showcase */}
@@ -704,56 +704,6 @@ const HarshPanghalPortfolio = () => {
 							</div>
 						</motion.div>
 
-						{/* Frontend Projects */}
-						{/* <motion.div
-              className={`group p-6 rounded-xl border backdrop-blur-sm cursor-pointer transition-all duration-300 ${
-                 theme==='dark' 
-                  ? 'bg-slate-800/60 border-slate-700/60 hover:bg-slate-800/80 hover:border-purple-400/50' 
-                  : 'bg-white/60 border-gray-200/60 hover:bg-white/80 hover:border-purple-400/50'
-              }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="flex items-center mb-4">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-2xl ${
-                  theme==='dark' 
-                    ? 'bg-purple-500/20 text-purple-400' 
-                    : 'bg-purple-500/10 text-purple-600'
-                }`}>
-                  🎨
-                </div>
-                <div className="ml-4">
-                  <h4 className={`text-xl font-semibold ${
-                    theme==='dark' ? 'text-slate-100 group-hover:text-purple-300' : 'text-gray-900 group-hover:text-purple-600'
-                  } transition-colors`}>
-                    Frontend Showcase
-                  </h4>
-                 
-                </div>
-              </div>
-              <p className={`text-sm mb-4 ${
-                theme==='dark' ? 'text-slate-400' : 'text-gray-600'
-              }`}>
-                Interactive UIs, animations, and responsive designs that create memorable user experiences.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {['React', 'TypeScript', 'Tailwind', 'Framer Motion'].map((tech) => (
-                  <span key={tech} className={`px-2 py-1 text-xs rounded-md ${
-                    theme==='dark' 
-                      ? 'bg-slate-700/50 text-slate-300' 
-                      : 'bg-gray-100 text-gray-700'
-                  }`}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-           
-            </motion.div> */}
-
 						{/* Blockchain Projects */}
 						<motion.div
 							className={`group p-6 rounded-xl border backdrop-blur-sm cursor-pointer transition-all duration-300 ${
@@ -868,7 +818,7 @@ const HarshPanghalPortfolio = () => {
 
 			{/* Call to action section */}
 			<section
-				className={`py-20 px-6 mb-20 md:px-24 lg:px-60 ${
+				className={`pt-20 px-6 pb-28 md:px-24 lg:px-60 ${
 					theme === "dark" ? "" : "bg-indigo-50/50"
 				}`}
 			>

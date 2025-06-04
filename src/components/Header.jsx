@@ -53,7 +53,7 @@ const HeaderContent = React.memo(
 					<motion.div
 						className={`flex items-center justify-between h-16 transition-all duration-300 ${
 							scrolled
-								? "bg-[rgba(17,17,27,0.4)] rounded-[32px] px-8 h-[80px] backdrop-blur-3xl shadow-md -mt-2 md:mx-12"
+								? "dark:bg-[rgba(17,17,27,0.4)] bg-gray-100 rounded-[32px] px-8 h-[80px] backdrop-blur-3xl shadow-md -mt-2 md:mx-12"
 								: ""
 						}`}
 					>
