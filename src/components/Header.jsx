@@ -16,7 +16,7 @@ const NavLink = React.memo(({ link, isMobile = false, setMenuOpen }) => {
 		<motion.div
 			key={link}
 			className={`relative font-medium ${
-				isMobile ? "text-center text-lg w-full block py-3" : "px-4"
+				isMobile ? "text-center text-xl w-full block py-3" : "px-4 text-base"
 			}`}
 		>
 			<Link

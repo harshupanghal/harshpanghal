@@ -58,7 +58,7 @@ const AboutSection = () => {
             Harsh Panghal
           </h1>
           <p
-            className={`text-lg md:text-xl mt-2 ${
+            className={`text-lg mt-2 ${
               theme === "dark" ? "text-gray-300" : "text-gray-700"
             }`}
           >
@@ -87,7 +87,7 @@ const AboutSection = () => {
           things (sometimes on purpose), and I keep going. That’s the fun part,
           isn’t it?
         </p> */}
-        <p className="text-lg">
+        <p className="text-xl">
           Mastering different technologies. Skilled in a bit of everything. I learn, I implement, I break
           things (sometimes on purpose), and I keep going. That’s the fun part,
           isn’t it?

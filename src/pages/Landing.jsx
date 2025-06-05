@@ -10,6 +10,14 @@ import {
 	BiRightArrowAlt,
 	BiRightArrowCircle,
 } from "react-icons/bi";
+import {
+	SiReact,
+	SiNextdotjs,
+	SiNodedotjs,
+	SiSolidity,
+	SiTailwindcss,
+	SiMongodb,
+} from "react-icons/si";
 
 const href = "/HARSH's_RESUME.pdf";
 
@@ -184,41 +192,59 @@ const SkillBadge = ({ skill, delay = 0, isHighlight = false }) => {
 	);
 };
 
-
 // Animated Letter Component
 const AnimatedLetter = ({ letter, index, delay = 0 }) => {
 	return (
 		<motion.span
-			className="inline-block relative cursor-pointer"
-			initial={{ opacity: 0, y: 100, rotateX: 90 }}
-			animate={{ opacity: 1, y: 0, rotateX: 0 }}
+			className="inline-block relative cursor-pointer select-none"
+			initial={{
+				opacity: 0,
+				y: 60,
+				rotateX: 75,
+				filter: "blur(10px)",
+			}}
+			animate={{
+				opacity: 1,
+				y: 0,
+				rotateX: 0,
+				filter: "blur(0px)",
+			}}
 			transition={{
-				delay: delay + index * 0.1,
+				delay: delay + index * 0.08,
 				duration: 0.6,
-				type: "spring",
-				stiffness: 100,
+				ease: [0.22, 1, 0.36, 1], // easeOutBack-like
 			}}
 			whileHover={{
-				scale: 1.1,
-				y: -8,
-				rotateZ: [-2, 2, -2, 0],
-				filter: "drop-shadow(0 8px 16px rgba(99, 102, 241, 0.4))",
+				scale: 1.15,
+				y: -6,
+				rotateZ: [0, 2, -2, 1, 0],
 				transition: {
-					rotateZ: { duration: 0.1 },
-					y: { type: "spring", stiffness: 300, damping: 10 },
-					scale: { type: "spring", stiffness: 300, damping: 10 },
+					scale: { type: "spring", stiffness: 260, damping: 12 },
+					rotateZ: { duration: 0.4 },
+					y: { type: "spring", stiffness: 150, damping: 10 },
 				},
+				filter: "drop-shadow(0 8px 20px rgba(99,102,241,0.45))",
 			}}
-			whileTap={{ scale: 0.95 }}
+			whileTap={{ scale: 0.93 }}
 		>
 			{letter}
-			{/* Sparkle effect on hover */}
+
+			{/* Sparkle on hover with fade-glow pulse */}
 			<motion.div
-				className="absolute -top-2 -right-1 w-1 h-1 bg-amber-400 rounded-full opacity-0"
+				className="absolute -top-1.5 -right-1 w-1.5 h-1.5 bg-amber-400 rounded-full pointer-events-none"
+				initial={{ opacity: 0, scale: 0 }}
 				whileHover={{
 					opacity: [0, 1, 0],
-					scale: [0, 1.5, 0],
-					transition: { duration: 0.2 },
+					scale: [0, 2, 0.8],
+					boxShadow: [
+						"0 0 0 rgba(251, 191, 36, 0.0)",
+						"0 0 8px rgba(251, 191, 36, 0.9)",
+						"0 0 0 rgba(251, 191, 36, 0.0)",
+					],
+					transition: {
+						duration: 0.4,
+						ease: "easeOut",
+					},
 				}}
 			/>
 		</motion.span>
@@ -228,10 +254,10 @@ const AnimatedLetter = ({ letter, index, delay = 0 }) => {
 // Main component
 const HarshPanghalPortfolio = () => {
 	const { theme } = useTheme();
-	const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+	// const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 	const heroRef = useRef(null);
 	const { scrollYProgress } = useScroll();
-	const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+	// const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
 	const web3Skills = ["Solidity", "DeFi", "NFTs", "DAOs"];
 	const web2Skills = ["ReactJs", "NextJs", "NodeJs", "MongoDB"];
@@ -242,13 +268,13 @@ const HarshPanghalPortfolio = () => {
 		"Web3 Solutions",
 	];
 
-	useEffect(() => {
-		const handleMouseMove = (e) => {
-			setMousePos({ x: e.clientX, y: e.clientY });
-		};
-		window.addEventListener("mousemove", handleMouseMove);
-		return () => window.removeEventListener("mousemove", handleMouseMove);
-	}, []);
+	// useEffect(() => {
+	// 	// const handleMouseMove = (e) => {
+	// 		// setMousePos({ x: e.clientX, y: e.clientY });
+	// 	// };
+	// 	window.addEventListener("mousemove", handleMouseMove);
+	// 	return () => window.removeEventListener("mousemove", handleMouseMove);
+	// }, []);
 
 	const renderAnimatedName = (name, delay = 0) => {
 		return name
@@ -262,6 +288,14 @@ const HarshPanghalPortfolio = () => {
 				/>
 			));
 	};
+	const skills = [
+		{ icon: <SiReact />, label: "React.js" },
+		{ icon: <SiNextdotjs />, label: "Next.js" },
+		{ icon: <SiNodedotjs />, label: "Node.js" },
+		{ icon: <SiSolidity />, label: "Solidity" },
+		{ icon: <SiTailwindcss />, label: "Tailwind" },
+		{ icon: <SiMongodb />, label: "MongoDB" },
+	];
 
 	return (
 		<div
@@ -341,12 +375,12 @@ const HarshPanghalPortfolio = () => {
 									: "bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
 							}`}
 						>
-							<div className="dark:text-[#fff] text-gray-800  inline-block font-semibold">
+							<div className="dark:text-gray-100 text-gray-800  inline-block font-semibold">
 								{renderAnimatedName("Harsh", 0.1)}
 							</div>
 							<span> </span>
-							<div className="dark:text-[#fff] text-gray-800 inline-block font-semibold">
-								{renderAnimatedName("Panghal.", 0.1)}
+							<div className="dark:text-gray-100 text-gray-800 inline-block font-semibold">
+								{renderAnimatedName("Panghal", 0.1)}
 							</div>
 						</div>
 					</motion.h1>
@@ -365,50 +399,80 @@ const HarshPanghalPortfolio = () => {
 
 					{/* Enhanced CTA buttons */}
 					<motion.div
-						className="flex  items-center sm:flex-row gap-4 mb-8 pt-6"
-						initial={{ opacity: 0, scale: 0.8 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ delay: 1.7 }}
+						className="flex items-center sm:flex-row gap-4 mb-8 pt-6"
+						initial="hidden"
+						animate="visible"
+						variants={{
+							hidden: { opacity: 0, scale: 0.9, y: 30, filter: "blur(6px)" },
+							visible: {
+								opacity: 1,
+								scale: 1,
+								y: 0,
+								filter: "blur(0px)",
+								transition: {
+									duration: 0.7,
+									delayChildren: 1.7,
+									staggerChildren: 0.15,
+									ease: [0.22, 1, 0.36, 1],
+								},
+							},
+						}}
 					>
-						{/* About Button */}
+						{/* About Button with improved entrance */}
 						<Link to="/about">
 							<motion.button
-								className="relative px-8 py-3 rounded-lg font-semibold text-lg overflow-hidden group text-white bg-gray-100 dark:bg-[#0404058d] shadow-lg shadow-cyan-500/30 dark:shadow-cyan-400/20"
+								className="relative px-8 py-3 rounded-lg font-semibold text-lg overflow-hidden group text-white bg-gray-200 dark:bg-gray-950 shadow-lg shadow-cyan-500/30 dark:shadow-cyan-400/20 transition-transform"
+								variants={{
+									hidden: { opacity: 0, scale: 0.8, rotateX: -90 },
+									visible: {
+										opacity: 1,
+										scale: 1,
+										rotateX: 0,
+										transition: {
+											duration: 0.6,
+											ease: [0.22, 1, 0.36, 1],
+										},
+									},
+								}}
 								whileHover="hover"
-								whileTap={{ scale: 0.98 }}
+								whileTap={{ scale: 0.96 }}
 							>
-								{/* Hover background */}
+								{/* Hover background zoom */}
 								<motion.div
-									className="absolute inset-0  z-0"
-									variants={{ hover: { scale: 1 } }}
+									className="absolute inset-0 bg-emerald-500 opacity-10 rounded-lg z-0"
 									initial={{ scale: 0 }}
-									style={{ originX: 0.5, originY: 0.5 }}
-									transition={{ duration: 0.3 }}
+									variants={{ hover: { scale: 1.2 } }}
+									transition={{ duration: 0.4 }}
 								/>
 
-								{/* Button text */}
-								<span className="relative z-10 text-gray-900 dark:text-gray-100 ">
+								{/* Text */}
+								<span className="relative z-10 text-gray-900 dark:text-gray-100">
 									About Me
 								</span>
 
-								{/* Shine effect */}
+								{/* Shimmer Line */}
 								<motion.div
 									className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12"
 									animate={{ x: ["-100%", "200%"] }}
-									transition={{ duration: 1, repeat: Infinity, repeatDelay: 3 }}
+									transition={{
+										duration: 1.2,
+										repeat: Infinity,
+										repeatDelay: 3,
+									}}
 								/>
 							</motion.button>
 						</Link>
 
-						{/* Resume button */}
+					
 						<a
 							href="HARSH's_RESUME.pdf"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
+							
 							<button
 								type="submit"
-								className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 text-gray-900 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden  rounded-full group "
+								className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 text-gray-900 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden rounded-full group "
 							>
 								Resume
 								<svg
@@ -523,7 +587,6 @@ const HarshPanghalPortfolio = () => {
 							initial={{ opacity: 0, x: -30 }}
 							whileInView={{ opacity: 1, x: 0 }}
 							viewport={{ once: true }}
-							whileHover={{ scale: 1.01 }}
 							transition={{ duration: 0.4 }}
 						>
 							<h4 className="text-lg font-semibold mb-4 tracking-wide">

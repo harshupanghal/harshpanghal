@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [theme, setTheme] = useState("dark" || localStorage.getItem("theme")  );
 
   useEffect(() => {
     const root = document.documentElement;
@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {/* Apply theme transition effect */}
-      <div className="transition-colors duration-400 ease-in-out">
+      <div className="transition-colors duration-300 ease-in-out">
         {children}
       </div>
     </ThemeContext.Provider>
