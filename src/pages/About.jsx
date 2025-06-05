@@ -62,12 +62,12 @@ const AboutSection = () => {
               theme === "dark" ? "text-gray-300" : "text-gray-700"
             }`}
           >
-            Web Developer & Blockchain Enthusiast
+            FullStack Web Developer & Blockchain Enthusiast
           </p>
         </div>
 
         {/* Right Side: Social Icons */}
-        <div className="hidden lg:block">
+        <div className="mt-5 block">
           <SocialLinks />
         </div>
       </div>
@@ -78,7 +78,7 @@ const AboutSection = () => {
           theme === "dark" ? "text-gray-300" : "text-gray-700"
         }`}
       >
-        <p className="text-lg">
+        {/* <p className="text-lg">
           Currently based in India, a fresh CS graduate, mastering different technologies. Always on the lookout for opportunities, because why settle when you can explore? Skilled in a
           bit of everything—tech, reading books, writing and even the fine art
           of overthinking. Discipline and punctuality bring me happiness (yes,
@@ -86,9 +86,16 @@ const AboutSection = () => {
           in—comfort zones? Never heard of them. I learn, I implement, I break
           things (sometimes on purpose), and I keep going. That’s the fun part,
           isn’t it?
+        </p> */}
+        <p className="text-lg">
+          Mastering different technologies. Skilled in a bit of everything. I learn, I implement, I break
+          things (sometimes on purpose), and I keep going. That’s the fun part,
+          isn’t it?
         </p>
       </div>
 
+
+      {/* Skills Section */}
       <div className="">
         <TechSkills />
       </div>
@@ -181,7 +188,6 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Skills Section */}
       
 
       <style jsx>{`

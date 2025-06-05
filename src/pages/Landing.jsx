@@ -169,64 +169,21 @@ const TypeWriter = ({ texts, className = "" }) => {
 const SkillBadge = ({ skill, delay = 0, isHighlight = false }) => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.8 }}
+			initial={{ opacity: 0, scale: 0.95 }}
 			whileInView={{ opacity: 1, scale: 1 }}
-			whileHover={{
-				scale: 1.05,
-				rotate: [-1, 1, -1, 0],
-				transition: { rotate: { duration: 0.3 } },
-			}}
-			whileTap={{ scale: 0.95 }}
 			viewport={{ once: true }}
 			transition={{ delay, duration: 0.3 }}
-			className={`group relative px-4 py-2 rounded-lg border cursor-pointer overflow-hidden ${
+			className={`px-3 py-1.5 rounded-md text-sm border transition-colors duration-300 ${
 				isHighlight
-					? "bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border-indigo-400/50 dark:from-indigo-400/10 dark:to-purple-400/10 dark:border-indigo-300/50"
-					: "bg-white/80 dark:bg-slate-800/80 border-gray-300 dark:border-slate-600/80 hover:border-indigo-400/60 dark:hover:border-indigo-300/60"
+					? "border-indigo-400 text-gray-800 dark:text-gray-200"
+					: "border-gray-300 text-gray-700 dark:text-gray-300 dark:border-slate-600"
 			}`}
 		>
-			{/* Animated background on hover */}
-			<motion.div
-				className={`absolute inset-0 ${
-					isHighlight
-						? "bg-gradient-to-r from-indigo-500/20 to-purple-500/20 dark:from-indigo-400/20 dark:to-purple-400/20"
-						: "bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-400/10 dark:to-purple-400/10"
-				}`}
-				initial={{ x: "-100%" }}
-				whileHover={{ x: 0 }}
-				transition={{ duration: 0.3 }}
-			/>
-
-			<span
-				className={`relative z-10 font-medium transition-colors ${
-					isHighlight
-						? "text-indigo-700 dark:text-indigo-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-200"
-						: "text-gray-700 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-200"
-				}`}
-			>
-				{skill}
-			</span>
-
-			{/* Sparkle effect */}
-			<motion.div
-				className={`absolute top-1 right-1 w-1 h-1 rounded-full ${
-					isHighlight
-						? "bg-amber-400 dark:bg-amber-300"
-						: "bg-indigo-400 dark:bg-indigo-300"
-				}`}
-				animate={{
-					scale: [0, 1, 0],
-					opacity: [0, 1, 0],
-				}}
-				transition={{
-					duration: 1.5,
-					repeat: Infinity,
-					delay: Math.random() * 2,
-				}}
-			/>
+			{skill}
 		</motion.div>
 	);
 };
+
 
 // Animated Letter Component
 const AnimatedLetter = ({ letter, index, delay = 0 }) => {
@@ -261,7 +218,7 @@ const AnimatedLetter = ({ letter, index, delay = 0 }) => {
 				whileHover={{
 					opacity: [0, 1, 0],
 					scale: [0, 1.5, 0],
-					transition: { duration: 0.6 },
+					transition: { duration: 0.2 },
 				}}
 			/>
 		</motion.span>
@@ -276,14 +233,13 @@ const HarshPanghalPortfolio = () => {
 	const { scrollYProgress } = useScroll();
 	const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
-	const web3Skills = ["Blockchain", "Smart Contracts", "DeFi", "NFTs", "DAOs"];
-	const web2Skills = ["Full-Stack", "APIs", "Databases", "Cloud Deploy"];
+	const web3Skills = ["Solidity", "DeFi", "NFTs", "DAOs"];
+	const web2Skills = ["ReactJs", "NextJs", "NodeJs", "MongoDB"];
 
 	const typewriterTexts = [
 		"Full-Stack Developer",
 		"Blockchain Engineer",
-		"Web3 Innovator",
-		"Tech Enthusiast",
+		"Web3 Solutions",
 	];
 
 	useEffect(() => {
@@ -336,7 +292,7 @@ const HarshPanghalPortfolio = () => {
 							className={`absolute w-64 h-64 border rounded-lg ${
 								theme === "dark"
 									? "border-indigo-400/20"
-									: "border-indigo-500/30"
+									: "border-indigo-500/20"
 							}`}
 							style={{
 								left: `${20 + i * 30}%`,
@@ -385,11 +341,11 @@ const HarshPanghalPortfolio = () => {
 									: "bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
 							}`}
 						>
-							<div className="dark:text-[#fff] text-[#0396ff]  inline-block font-semibold">
+							<div className="dark:text-[#fff] text-gray-800  inline-block font-semibold">
 								{renderAnimatedName("Harsh", 0.1)}
 							</div>
 							<span> </span>
-							<div className="dark:text-[#fff] text-[#0396ff] inline-block font-semibold">
+							<div className="dark:text-[#fff] text-gray-800 inline-block font-semibold">
 								{renderAnimatedName("Panghal.", 0.1)}
 							</div>
 						</div>
@@ -521,7 +477,6 @@ const HarshPanghalPortfolio = () => {
 				</motion.div>
 			</section>
 
-
 			{/* Skills showcase */}
 			<section id="skills-section" className="py-16 px-6 md:px-24 lg:px-60">
 				<motion.div
@@ -531,8 +486,8 @@ const HarshPanghalPortfolio = () => {
 					transition={{ duration: 0.8 }}
 				>
 					<motion.h3
-						className={`text-3xl md:text-4xl font-semibold mb-4 ${
-							theme === "dark" ? "text-slate-100" : "text-gray-900"
+						className={`text-3xl md:text-4xl font-semibold mb-4 tracking-tight ${
+							theme === "dark" ? "text-white" : "text-gray-900"
 						}`}
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
@@ -542,57 +497,58 @@ const HarshPanghalPortfolio = () => {
 					</motion.h3>
 
 					<motion.p
-						className={`text-lg mb-8 max-w-xl ${
+						className={`text-base md:text-lg leading-relaxed mb-10 max-w-2xl ${
 							theme === "dark" ? "text-slate-400" : "text-gray-600"
 						}`}
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 1.5 }}
+						transition={{ delay: 0.6 }}
 					>
-						From brainstorming creative designs to production-ready deployment —
-						<span className="text-indigo-400 dark:text-indigo-300  font-medium">
-							I do it all
+						From brainstorming designs to deploying final builds —
+						<span className="font-medium underline underline-offset-4">
+							{" "}
+							I do it all.{" "}
 						</span>
-						. Think of me as your all-in-one tech enthusiast.
+						Your all-in-one tech partner.
 					</motion.p>
 
-					{/* Web2 vs Web3 sections */}
-					<div className="grid md:grid-cols-2 gap-8 mb-12">
+					<div className="grid md:grid-cols-2 gap-6 md:gap-10 mb-12">
+						{/* Web2 */}
 						<motion.div
-							className={`p-6 rounded-xl border backdrop-blur-sm ${
+							className={`p-5 md:p-6 rounded-xl border-2 ${
 								theme === "dark"
-									? "bg-[#0a0a0a]/90 border-slate-700/60"
-									: "bg-white/60 border-gray-200/60"
+									? "border-slate-700 bg-[#0f0f0f]/60"
+									: "border-gray-300 bg-white"
 							}`}
 							initial={{ opacity: 0, x: -30 }}
 							whileInView={{ opacity: 1, x: 0 }}
 							viewport={{ once: true }}
-							whileHover={{ scale: 1.02 }}
-							transition={{ duration: 0.5 }}
+							whileHover={{ scale: 1.01 }}
+							transition={{ duration: 0.4 }}
 						>
-							<h4 className="text-xl font-semibold mb-4 text-indigo-500 dark:text-indigo-400">
+							<h4 className="text-lg font-semibold mb-4 tracking-wide">
 								Web2 Mastery
 							</h4>
 							<div className="flex flex-wrap gap-2">
 								{web2Skills.map((skill, index) => (
-									<SkillBadge key={skill} skill={skill} delay={index * 0.1} />
+									<SkillBadge key={skill} skill={skill} delay={index * 0.05} />
 								))}
 							</div>
 						</motion.div>
 
+						{/* Web3 */}
 						<motion.div
-							className={`p-6 rounded-xl border backdrop-blur-sm ${
+							className={`p-5 md:p-6 rounded-xl border-2 ${
 								theme === "dark"
-									? "bg-[#0a0a0a]/90 border-slate-700/60"
-									: "bg-white/60 border-gray-200/60"
+									? "border-slate-700 bg-[#0f0f0f]/60"
+									: "border-gray-300 bg-white"
 							}`}
 							initial={{ opacity: 0, x: 30 }}
 							whileInView={{ opacity: 1, x: 0 }}
 							viewport={{ once: true }}
-							whileHover={{ scale: 1.02 }}
-							transition={{ duration: 0.5, delay: 0.2 }}
+							transition={{ duration: 0.4, delay: 0.1 }}
 						>
-							<h4 className="text-xl font-semibold mb-4 text-amber-500 dark:text-amber-400">
+							<h4 className="text-lg font-semibold mb-4 tracking-wide">
 								Web3 Innovation
 							</h4>
 							<div className="flex flex-wrap gap-2">
@@ -600,16 +556,19 @@ const HarshPanghalPortfolio = () => {
 									<SkillBadge
 										key={skill}
 										skill={skill}
-										delay={index * 0.1}
-										isHighlight={true}
+										delay={index * 0.05}
+										isHighlight
 									/>
 								))}
 							</div>
 						</motion.div>
 					</div>
 				</motion.div>
+
 				<SkillsSection />
 			</section>
+
+			{/* projects */}
 
 			<section className="py-20 px-6 md:px-24 lg:px-60">
 				<motion.div

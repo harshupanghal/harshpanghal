@@ -35,18 +35,7 @@ const Projects = () => {
       tech: "Solidity, React.js, Eth.js ",
       image: "/freeflow.png",
     },
-    {
-      name: "Portfolio",
-      link: "https://harshpanghal.vercel.app/",
-      tech: "React, Tailwind, Framer Motion",
-      image: "/portfolio.png",
-    },
-    {
-      name: "RustyBlocks",
-      link: "https://github.com/harshupanghal/Core-Blockchain-Using-RUST",
-      tech: "Rust, Core Blockchain",
-      image: "/rust.png",
-    },
+   
     {
       name: "Blockchain In Govt.",
       link: "/Blockchain Revolutionizing Government Services.pdff",
