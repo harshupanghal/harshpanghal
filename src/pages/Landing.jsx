@@ -58,7 +58,7 @@ const EnhancedCursor = () => {
 // Floating tech icons/symbols background
 const techElements = [
 	"⚛️",
-	"🔗",
+	";",
 	"☁️",
 	"🚀",
 	"λ",
@@ -68,6 +68,13 @@ const techElements = [
 	"Web3",
 	"DeFi",
 	"React",
+	"MongoDB",
+	"Hardhat",
+	"IPFS",
+	"Tailwind",
+	"Express",
+	"Linux",
+	"Git",
 	"Node",
 	"Next",
 	"JS",
@@ -319,7 +326,7 @@ const HarshPanghalPortfolio = () => {
 				className="min-h-screen flex flex-col justify-center px-6 md:px-24 lg:px-60 relative z-10"
 			>
 				{/* Floating geometric shapes */}
-				<div className="absolute inset-0 overflow-hidden">
+				{/*<div className="absolute inset-0 overflow-hidden">
 					{[...Array(3)].map((_, i) => (
 						<motion.div
 							key={i}
@@ -343,7 +350,7 @@ const HarshPanghalPortfolio = () => {
 							}}
 						/>
 					))}
-				</div>
+				</div>*/}
 
 				<motion.div
 					initial={{ opacity: 0, y: 50 }}
