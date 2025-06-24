@@ -306,7 +306,7 @@ const HarshPanghalPortfolio = () => {
 
 	return (
 		<div
-			className={`min-h-screen md:pt-8 transition-colors duration-500 relative overflow-hidden ${
+			className={`min-h-screen md:pt-12 transition-colors duration-500 relative overflow-hidden ${
 				theme === "dark"
 					? "bg-gradient-to-br from-[#000000] via-[#0a0a0a] to-[#11111b] text-white"
 					: "bg-gradient-to-br from-gray-50 via-white to-indigo-50 text-gray-900"
@@ -426,7 +426,7 @@ const HarshPanghalPortfolio = () => {
 						}}
 					>
 						{/* About Button with improved entrance */}
-						<Link to="/about">
+						{/* <Link to="/about">
 							<motion.button
 								className="relative px-8 py-3 rounded-lg font-semibold text-lg overflow-hidden group text-white bg-gray-200 dark:bg-gray-950 shadow-lg shadow-cyan-500/30 dark:shadow-cyan-400/20 transition-transform"
 								variants={{
@@ -444,20 +444,15 @@ const HarshPanghalPortfolio = () => {
 								whileHover="hover"
 								whileTap={{ scale: 0.96 }}
 							>
-								{/* Hover background zoom */}
-								<motion.div
-									className="absolute inset-0 bg-emerald-500 opacity-10 rounded-lg z-0"
-									initial={{ scale: 0 }}
-									variants={{ hover: { scale: 1.2 } }}
-									transition={{ duration: 0.4 }}
-								/>
+							
+								
 
-								{/* Text */}
+								
 								<span className="relative z-10 text-gray-900 dark:text-gray-100">
 									About Me
 								</span>
 
-								{/* Shimmer Line */}
+								
 								<motion.div
 									className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12"
 									animate={{ x: ["-100%", "200%"] }}
@@ -468,7 +463,7 @@ const HarshPanghalPortfolio = () => {
 									}}
 								/>
 							</motion.button>
-						</Link>
+						</Link> */}
 
 					
 						<a
@@ -479,7 +474,7 @@ const HarshPanghalPortfolio = () => {
 							
 							<button
 								type="submit"
-								className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 text-gray-900 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden rounded-full group "
+								className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-indigo-500 text-gray-900 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden rounded-full group "
 							>
 								Resume
 								<svg
